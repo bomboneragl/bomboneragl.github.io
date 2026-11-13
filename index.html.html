@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bombonera Gastro-Lounge · Playa de Tavernes</title>
+<meta name="description" content="Bombonera Gastro-Lounge, en la playa de Tavernes de la Valldigna: bravas caseras, croquetas, burgers de autor, cócteles, spritz, vermut y música. Reserva tu mesa.">
+<meta name="theme-color" content="#fbf8f3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TOKENS DE MARCA (sacados de la carta y el logo)
+   ========================================================= */
+:root{
+  --negro:#121010;
+  --negro-2:#1a1716;
+  --negro-3:#25201e;
+  --crema:#f3ece1;
+  --crema-2:#cbc1b4;
+  --rojo:#d8394f;
+  --mostaza:#e9a23b;
+  --agua:#6fb7ad;
+  --texto:#1a1615;
+  --bg:#fbf8f3;
+  --bg-2:#f7ecdb;
+  --mar:#1f8f93;
+  --mar-claro:#9fd9d6;
+  --sol:#ffc861;
+  --atardecer:#ff9a62;
+  --surface:#ffffff;
+  --mostaza-txt:#b5700f;
+  --mostaza-tit:#d88c1c;
+  --suave:#6e645b;
+  --borde:rgba(26,22,21,.12);
+  --borde-fuerte:rgba(233,162,59,.45);
+  --radio:16px;
+  --sombra:0 24px 50px -28px rgba(70,45,20,.35);
+  --f-display:"Big Shoulders Display","Roboto Condensed","Arial Narrow","Helvetica Neue",sans-serif;
+  --f-body:"Raleway", system-ui, -apple-system, Segoe UI, sans-serif;
+  --max:1200px;
+  --gutter:clamp(16px,4vw,40px);
+  --brocha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' preserveAspectRatio='none'%3E%3Cpath fill='%23e9a23b' d='M6 14c40-6 90-9 140-8s95 2 148 6c3 1 4 5 1 7-12 2 4 4-2 8-42 2-90 5-138 4-46-1-93-1-142 3-6 0-9-4-6-7 4-2-6-3-3-6 0-3 1-6 2-7z'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--f-body);background:var(--bg);color:var(--texto);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--mostaza);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grain::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- Tipografía ---------- */
+.eyebrow{font-family:var(--f-display);font-weight:800;font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo);display:inline-flex;align-items:center;gap:.6em}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--mostaza)}
+h1,h2,h3{font-stretch:condensed;font-family:var(--f-display);font-weight:800;line-height:.92;text-transform:uppercase;letter-spacing:.01em}
+h2{font-size:clamp(2.6rem,6.5vw,5rem);margin:.25em 0 .35em}
+h2 em,h1 em{font-style:normal;color:var(--mostaza-tit)}
+.lead{color:var(--suave);font-size:1.06rem;max-width:56ch}
+section{padding:clamp(72px,11vw,130px) 0;position:relative}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:.95em 1.6em;border-radius:999px;font-weight:700;font-size:.95rem;border:1px solid transparent;cursor:pointer;transition:transform .25s,background .25s,box-shadow .25s,color .25s,border-color .25s;white-space:nowrap}
+.btn-main{background:var(--mostaza);color:var(--negro);box-shadow:0 10px 30px -12px rgba(233,162,59,.7)}
+.btn-main:hover{transform:translateY(-2px);background:#f2b14f}
+.btn-linea{border-color:var(--borde);background:var(--surface)}
+.btn-linea:hover{border-color:var(--mostaza);color:var(--mostaza-txt)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- Logo ---------- */
+.logo{display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1;color:var(--texto)}
+.logo svg{height:22px;width:auto;fill:currentColor}
+.logo small{font-family:var(--f-body);font-weight:300;font-size:.7rem;letter-spacing:.04em;margin-top:5px;color:var(--suave)}
+
+/* ---------- Navegación ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .35s,border-color .35s,padding .35s;border-bottom:1px solid transparent;padding:18px 0}
+.nav.scrolled{background:rgba(251,248,243,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--borde);padding:10px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:.92rem;font-weight:600}
+.nav-links a{color:var(--suave);transition:color .2s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--texto)}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--mostaza);border-radius:2px}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--borde);background:var(--surface);cursor:pointer;place-content:center;justify-items:center;gap:4px}
+.burger span{display:block;width:18px;height:2px;background:var(--texto);border-radius:2px;transition:transform .3s,opacity .3s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:45;background:rgba(251,248,243,.98);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;padding:100px var(--gutter) 40px;gap:4px;opacity:0;pointer-events:none;transition:opacity .35s}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:2.6rem;line-height:1.15;padding:.1em 0;border-bottom:1px solid var(--borde);transform:translateY(12px);opacity:0;transition:transform .45s,opacity .45s}
+.mobile-menu.open a{transform:none;opacity:1}
+.mobile-menu .btn{margin-top:24px;font-family:var(--f-body);font-size:1rem;text-transform:none;border:0;line-height:1}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;padding:130px 0 150px;overflow:hidden}
+.olas{position:absolute;left:-40px;bottom:-1px;width:calc(100% + 80px);max-width:none;height:clamp(60px,9vw,120px);z-index:1}
+.olas .o1{fill:var(--mar-claro);animation:ola 9s ease-in-out infinite alternate}
+.olas .o2{fill:var(--mar);animation:ola 7s ease-in-out infinite alternate-reverse}
+@keyframes ola{from{transform:translateX(-24px)}to{transform:translateX(24px)}}
+.olas-abajo{display:block;width:100%;height:clamp(24px,4vw,56px);margin-top:-1px;fill:var(--mar)}
+.sol{position:absolute;width:74%;aspect-ratio:1;right:-14%;top:-12%;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff1c4 0%,var(--sol) 45%,var(--atardecer) 100%);box-shadow:0 0 90px 30px rgba(255,200,97,.35);animation:solar 8s ease-in-out infinite alternate}
+@keyframes solar{to{transform:translateY(10px) scale(1.03)}}
+.vinilo{z-index:1}
+.hero::before{content:"";position:absolute;inset:-20%;
+  background:radial-gradient(40% 36% at 78% 34%,rgba(255,200,97,.32),transparent 70%),radial-gradient(30% 30% at 88% 60%,rgba(255,154,98,.18),transparent 70%),radial-gradient(34% 40% at 12% 82%,rgba(159,217,214,.30),transparent 70%);
+  animation:glow 16s ease-in-out infinite alternate}
+@keyframes glow{to{transform:translate3d(-4%,3%,0) scale(1.08)}}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:.6em;padding:.45em .95em;border-radius:999px;background:var(--surface);border:1px solid var(--borde);font-size:.84rem;font-weight:600;color:var(--suave);margin-bottom:26px}
+.dot{width:8px;height:8px;border-radius:50%;background:#b0a69c}
+.status.abierto .dot{background:#5fd18a;animation:pulse 2s infinite}
+.status.abierto strong{color:#1f8a4c}
+.status.cerrado strong{color:#b3263b}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,209,138,.6)}70%{box-shadow:0 0 0 10px rgba(95,209,138,0)}100%{box-shadow:0 0 0 0 rgba(95,209,138,0)}}
+.hero h1{font-size:clamp(3.2rem,8vw,6.2rem);font-weight:900}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .line span{display:block;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .line:nth-child(2) span{animation-delay:.12s}
+.hero h1 .line:nth-child(3) span{animation-delay:.24s}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.hero-sub{margin:26px 0 34px;font-size:clamp(1.05rem,2vw,1.2rem);color:var(--suave);max-width:46ch;animation:fade 1s .5s both}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;animation:fade 1s .65s both}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-meta{display:flex;flex-wrap:wrap;gap:30px;margin-top:46px;padding-top:24px;border-top:1px solid var(--borde);animation:fade 1s .8s both}
+.hero-meta div{font-size:.84rem;color:var(--suave)}
+.hero-meta strong{display:block;font-family:var(--f-display);font-size:1.6rem;font-weight:800;text-transform:uppercase;color:var(--texto);line-height:1.1}
+
+/* Vinilo (inspirado en la carta redonda de cócteles) */
+.vinilo-wrap{position:relative;aspect-ratio:1;animation:fade 1.2s .3s both}
+.vinilo{position:absolute;inset:0;border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%,transparent 0 31%,rgba(255,255,255,.05) 31.2% 31.6%,transparent 31.8%),
+    repeating-radial-gradient(circle at 50% 50%,#141111 0 2px,#1d1918 2px 3px),
+    #151212;
+  box-shadow:0 40px 70px -30px rgba(40,25,10,.55),inset 0 0 0 1px rgba(255,255,255,.06);
+  animation:spin 26s linear infinite}
+.vinilo::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,transparent 0 10%,rgba(255,255,255,.07) 14%,transparent 20% 55%,rgba(255,255,255,.05) 60%,transparent 66%)}
+.vinilo .label{position:absolute;inset:30%;border-radius:50%;background:var(--crema);display:grid;place-items:center;color:var(--negro);box-shadow:inset 0 0 0 6px rgba(0,0,0,.04)}
+.vinilo .label svg{width:72%;height:auto;fill:currentColor}
+.vinilo .label::after{content:"";position:absolute;width:3.2%;height:3.2%;border-radius:50%;background:var(--negro);top:50%;left:50%;transform:translate(-50%,-50%) translateY(260%)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinilo-wrap .sticker{position:absolute;right:2%;top:6%;background:var(--rojo);color:var(--crema);font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(1rem,2.2vw,1.35rem);line-height:1;padding:.7em .9em;transform:rotate(8deg);box-shadow:var(--sombra);clip-path:polygon(2% 6%,98% 0,100% 92%,4% 100%)}
+.vinilo-wrap .sticker.s2{right:auto;top:auto;left:0;bottom:8%;background:var(--mostaza);color:var(--negro);transform:rotate(-6deg)}
+.scroll-hint{z-index:2;position:absolute;bottom:clamp(70px,10vw,130px);left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--suave);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint i{width:1px;height:40px;background:linear-gradient(var(--mostaza),transparent)}
+
+/* ---------- Franja papel rasgado ---------- */
+.franja{background:var(--mar);color:#fff;overflow:hidden;padding:20px 0;position:relative;}
+.franja-track{display:flex;width:max-content;animation:marq 40s linear infinite}
+.franja span{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(1.6rem,3.6vw,2.6rem);white-space:nowrap;display:flex;align-items:center;gap:36px;padding-right:36px}
+.franja span:nth-child(3n+2){color:#ffe3a6}
+.franja span::after{content:"";width:14px;height:14px;border-radius:50%;background:var(--sol);box-shadow:0 0 0 4px rgba(255,200,97,.35)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- Concepto ---------- */
+.concepto .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
+.pilares{display:grid;gap:14px;margin-top:30px}
+.pilar{display:flex;gap:16px;padding:18px;border-radius:var(--radio);border:1px solid var(--borde);background:var(--surface);box-shadow:0 10px 30px -24px rgba(70,45,20,.4);transition:border-color .3s,transform .3s}
+.pilar:hover{border-color:var(--borde-fuerte);transform:translateX(4px)}
+.pilar-ico{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(233,162,59,.16);color:var(--mostaza-txt)}
+.pilar-ico svg{width:22px;height:22px}
+.pilar h3{font-size:1.5rem;margin-bottom:4px}
+.pilar p{color:var(--suave);font-size:.94rem}
+/* Collage tipo cartel (como el fondo de la carta) */
+.collage{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--crema);box-shadow:var(--sombra);transform:rotate(-1.2deg)}
+.collage .p{position:absolute}
+.collage .p1{inset:-5% 30% 45% -10%;background:var(--rojo);clip-path:polygon(0 0,100% 4%,92% 30%,100% 58%,86% 100%,0 92%)}
+.collage .p2{inset:40% -8% -6% 40%;background:var(--mostaza);clip-path:polygon(8% 6%,100% 0,100% 100%,0 100%,6% 70%,0 40%)}
+.collage .p3{inset:63% 55% 9% 7%;background:var(--mar);clip-path:polygon(0 8%,96% 0,100% 88%,4% 100%)}
+.collage .t{position:absolute;font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.85}
+.collage .t1{left:8%;top:9%;max-width:58%;font-size:clamp(2.2rem,4.8vw,3.8rem);color:var(--crema)}
+.collage .t2{right:6%;bottom:9%;max-width:46%;font-size:clamp(1.8rem,4vw,3rem);color:var(--negro);text-align:right}
+.collage .t3{color:#fff!important;left:11%;bottom:17%;max-width:32%;font-size:clamp(1.1rem,2.4vw,1.5rem);color:var(--mostaza);letter-spacing:.06em}
+.collage .logo-c{position:absolute;right:8%;top:42%;width:46%;color:var(--negro);fill:var(--negro)}
+
+/* ---------- Carta ---------- */
+.carta{background:var(--bg-2)}
+.carta-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+.buscador{position:relative;min-width:min(100%,280px)}
+.buscador input{width:100%;padding:.85em 1em .85em 2.7em;border-radius:999px;border:1px solid var(--borde);background:var(--surface);outline:none;transition:border-color .2s}
+.buscador input:focus{border-color:var(--mostaza)}
+.buscador svg{position:absolute;left:1em;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--suave)}
+.segment{display:inline-flex;padding:5px;border-radius:999px;border:1px solid var(--borde);background:var(--surface);margin-bottom:16px}
+.segment button{padding:.6em 1.4em;border-radius:999px;border:0;background:transparent;cursor:pointer;font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:1.15rem;letter-spacing:.04em;color:var(--suave);transition:all .25s}
+.segment button[aria-pressed="true"]{background:var(--negro);color:var(--crema)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:34px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:.6em 1.15em;border-radius:999px;border:1px solid var(--borde);background:var(--surface);cursor:pointer;font-weight:600;font-size:.9rem;color:var(--suave);transition:all .25s}
+.tab:hover{color:var(--texto);border-color:var(--borde-fuerte)}
+.tab[aria-selected="true"]{background:var(--mostaza);border-color:var(--mostaza);color:var(--negro)}
+.secciones{display:grid;gap:44px}
+.seccion{animation:fade .45s both}
+.seccion-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;margin-bottom:16px}
+.seccion-head h3{position:relative;font-size:clamp(2rem,4vw,2.8rem);font-weight:900;padding:0 .35em;isolation:isolate}
+.seccion-head h3::before{content:"";position:absolute;left:-.15em;right:-.4em;top:42%;height:58%;background:var(--brocha) center/100% 100% no-repeat;z-index:-1;opacity:.95}
+.seccion-head h3.rojo{color:var(--rojo);padding-left:0}
+.seccion-head h3.rojo::before{display:none}
+.seccion-head p{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--suave);font-size:1rem}
+.lista{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 48px}
+.item{padding:14px 0;border-bottom:1px dashed var(--borde)}
+.item-top{display:flex;align-items:baseline;gap:10px}
+.item h4{font-weight:700;font-size:1.06rem;letter-spacing:.01em}
+.item .lead-dots{flex:1;border-bottom:1px dotted rgba(26,22,21,.28);transform:translateY(-4px);min-width:16px}
+.precio{font-weight:700;color:var(--mostaza-txt);white-space:nowrap;font-variant-numeric:tabular-nums}
+.precio small{font-weight:500;font-size:.72rem;color:var(--suave);text-transform:uppercase;letter-spacing:.06em;margin:0 .25em 0 .5em}
+.precio small:first-child{margin-left:0}
+.item p{color:var(--suave);font-size:.9rem;font-style:italic;margin-top:2px}
+.badges{display:inline-flex;gap:6px;flex-wrap:wrap;margin-left:6px;vertical-align:middle}
+.badge{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25em .6em;border-radius:999px;border:1px solid var(--borde);color:var(--suave)}
+.badge.casa{background:rgba(216,57,79,.08);border-color:rgba(216,57,79,.45);color:#b3263b}
+.badge.veg{background:rgba(111,183,173,.12);border-color:rgba(46,125,114,.45);color:#2e7d72}
+.vacio{text-align:center;padding:50px 20px;color:var(--suave)}
+.nota-carta{margin-top:34px;font-size:.88rem;color:var(--suave);display:flex;gap:10px;align-items:flex-start;max-width:70ch}
+.nota-carta svg{flex:none;width:18px;height:18px;color:var(--mostaza-txt);margin-top:2px}
+
+/* ---------- Ambientes ---------- */
+.ambientes-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:40px}
+.amb{color:#fff;position:relative;border-radius:20px;overflow:hidden;min-height:300px;display:flex;align-items:flex-end;padding:24px;isolation:isolate}
+.amb::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(26,22,21,.78),rgba(26,22,21,0) 62%)}
+.amb .foto{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.amb:hover .foto{transform:scale(1.06)}
+.amb h3{font-size:2.2rem}
+.amb p{color:rgba(255,255,255,.88);font-size:.93rem;max-width:36ch}
+.amb .num{position:absolute;top:18px;left:24px;font-family:var(--f-display);font-weight:900;color:var(--mostaza);font-size:1.4rem}
+.a1{grid-column:span 12;min-height:400px}.a3{grid-column:span 6}.a4{grid-column:span 6}
+/* Sustituye estos degradados por fotos reales: background-image:url('tu-foto.jpg') */
+.f-terraza{background:radial-gradient(30% 30% at 50% 28%,#fff3d6,transparent 70%),linear-gradient(180deg,#bfe0e3 0%,#f6d8a8 55%,#e9b46a 100%)}
+.f-lounge{background:radial-gradient(40% 45% at 70% 30%,rgba(216,57,79,.45),transparent 70%),radial-gradient(35% 35% at 25% 40%,rgba(233,162,59,.45),transparent 70%),linear-gradient(135deg,#f6d3c8,#d98f84)}
+.f-barra{background:repeating-linear-gradient(90deg,rgba(233,162,59,.09) 0 2px,transparent 2px 46px),radial-gradient(50% 40% at 50% 30%,rgba(233,162,59,.42),transparent 70%),linear-gradient(160deg,#f1cf8e,#c98a3a)}
+.f-pista{background:radial-gradient(40% 40% at 30% 30%,rgba(255,255,255,.5),transparent 70%),radial-gradient(30% 30% at 75% 60%,rgba(216,57,79,.4),transparent 70%),linear-gradient(135deg,#a9d6cf,#5f9f97)}
+
+/* ---------- Agenda ---------- */
+.agenda{background:var(--bg-2)}
+.eventos{display:grid;gap:12px;margin-top:36px}
+.evento{display:grid;grid-template-columns:180px 1fr auto;gap:24px;align-items:center;padding:22px 26px;border-radius:var(--radio);border:1px solid var(--borde);background:var(--surface);transition:background .3s,border-color .3s}
+.evento:hover{background:#fffaf1;border-color:var(--borde-fuerte)}
+.evento .dia{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:1.9rem;line-height:1;color:var(--mostaza-txt)}
+.evento .dia .hora{display:block;margin-top:6px;font-family:var(--f-body);font-weight:700;font-size:.8rem;letter-spacing:.02em;text-transform:none;color:var(--mar)}
+.evento .dia small{display:block;font-family:var(--f-body);font-weight:600;font-size:.72rem;letter-spacing:.16em;color:var(--suave);margin-bottom:4px}
+.evento h3{font-size:1.6rem}
+.evento p{color:var(--suave);font-size:.93rem}
+.evento .hoy{display:none;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.4em .8em;border-radius:999px;background:var(--rojo);color:#fff}
+.evento.es-hoy{border-color:var(--mostaza)}
+.evento.es-hoy .hoy{display:inline-block}
+
+/* ---------- Eventos (próximos y pasados) ---------- */
+.historial{background:var(--bg)}
+.proximo{position:relative;margin-top:34px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;padding:28px 32px;border-radius:24px;overflow:hidden;color:#fff;
+  background:radial-gradient(60% 120% at 100% 0%,rgba(255,200,97,.55),transparent 60%),linear-gradient(120deg,var(--mar),#166e72);box-shadow:var(--sombra)}
+.proximo .etq{position:absolute;top:16px;right:18px;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--sol);color:var(--negro);padding:.35em .8em;border-radius:999px}
+.proximo .fecha-g{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.85;text-align:center}
+.proximo .fecha-g b{display:block;font-size:4.4rem}
+.proximo .fecha-g span{font-size:1.2rem;letter-spacing:.08em;opacity:.9}
+.proximo h3{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+.proximo p{opacity:.92;margin-top:4px}
+.proximo .actos{list-style:none;margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+.proximo .actos li{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:.3em .8em;border-radius:999px;font-size:.88rem;font-weight:600}
+.proximo .btn{background:#fff;color:var(--negro)}
+.pasados-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin:56px 0 18px}
+.pasados-head h3{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+.pasados-head p{color:var(--suave);font-size:.92rem}
+.mes{font-family:var(--f-display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:1.15rem;color:var(--rojo);margin:26px 0 12px;display:flex;align-items:center;gap:12px}
+.mes::after{content:"";flex:1;height:1px;background:var(--borde)}
+.grid-ev{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ev{display:flex;gap:16px;padding:18px;border-radius:var(--radio);border:1px solid var(--borde);background:var(--surface);transition:transform .3s,border-color .3s,box-shadow .3s}
+.ev:hover{transform:translateY(-3px);border-color:var(--borde-fuerte);box-shadow:0 14px 30px -22px rgba(70,45,20,.5)}
+.ev .f{flex:none;width:58px;text-align:center;font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.9;color:var(--mostaza-txt)}
+.ev .f b{display:block;font-size:2.3rem}
+.ev .f span{font-size:.85rem;letter-spacing:.06em;color:var(--suave)}
+.ev h4{font-size:1.02rem;font-weight:800;line-height:1.25}
+.ev-txt{font-size:.86rem;color:var(--suave);margin-top:4px}
+.ev ul{list-style:none;margin-top:6px;display:grid;gap:3px}
+.ev li{font-size:.86rem;color:var(--suave)}
+.ev li time{font-weight:700;color:var(--texto);margin-right:.35em;font-variant-numeric:tabular-nums}
+.ev .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:.64rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.28em .65em;border-radius:999px;border:1px solid}
+.tag.directo{color:#b3263b;border-color:rgba(216,57,79,.4);background:rgba(216,57,79,.07)}
+.tag.dj{color:#16696d;border-color:rgba(31,143,147,.4);background:rgba(31,143,147,.08)}
+.tag.fiesta{color:#8a520a;border-color:rgba(233,162,59,.55);background:rgba(233,162,59,.14)}
+.tag.vermut{color:#8a520a;border-color:rgba(233,162,59,.55);background:rgba(233,162,59,.14)}
+.tag.acustico{color:#4f5f2a;border-color:rgba(110,140,60,.45);background:rgba(110,140,60,.1)}
+.prox-grid{margin-top:14px}
+.ev.prox{border-color:rgba(31,143,147,.35);background:linear-gradient(180deg,#f2fbfa,#fff)}
+.ev.prox .f{color:var(--mar)}
+.hoy-tag{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--rojo);color:#fff;padding:.25em .6em;border-radius:999px;margin-bottom:6px}
+.sin-prox{padding:24px;border:1px dashed var(--borde);border-radius:var(--radio);color:var(--suave);text-align:center;background:var(--surface)}
+.historial .proximo{margin-top:0}
+.ev.extra{display:none}
+.historial.todo .ev.extra{display:flex}
+.historial .mes.extra{display:none}
+.historial.todo .mes.extra{display:flex}
+.ver-mas{margin-top:26px;display:flex;justify-content:center}
+.ig-cta{margin-top:30px;text-align:center;color:var(--suave);font-size:.93rem}
+.ig-cta a{color:var(--mar);font-weight:700}
+@media (max-width:980px){.grid-ev{grid-template-columns:1fr 1fr}}
+@media (max-width:720px){.grid-ev{grid-template-columns:1fr}.proximo{grid-template-columns:1fr;gap:14px;padding:26px 22px}.proximo .fecha-g{text-align:left;display:flex;align-items:baseline;gap:10px}.proximo .fecha-g b{font-size:3.2rem}}
+
+/* ---------- Reservas ---------- */
+.reservas .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,6vw,80px);align-items:start}
+.info-list{list-style:none;display:grid;gap:18px;margin-top:30px}
+.info-list li{display:flex;gap:14px;align-items:flex-start}
+.info-list .pilar-ico{width:42px;height:42px}
+.info-list strong{display:block;font-size:.95rem}
+.info-list span,.info-list a{color:var(--suave);font-size:.94rem}
+.info-list a:hover{color:var(--mostaza-txt)}
+.form{padding:clamp(22px,4vw,38px);border-radius:24px;border:1px solid var(--borde);background:var(--surface);box-shadow:var(--sombra)}
+.form h3{font-size:2.2rem;margin-bottom:6px}
+.form > p{color:var(--suave);font-size:.93rem;margin-bottom:22px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.campo{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.campo label,.campo .lbl{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
+.campo input,.campo select,.campo textarea{width:100%;padding:.85em 1em;border-radius:12px;border:1px solid var(--borde);background:var(--bg);outline:none;transition:border-color .2s;color-scheme:light}
+.campo textarea{resize:vertical;min-height:84px}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--mostaza)}
+.campo.err input,.campo.err select{border-color:var(--rojo)}
+.campo .msg{font-size:.8rem;color:#b3263b}
+.stepper{display:flex;align-items:center;border:1px solid var(--borde);border-radius:12px;background:var(--bg);overflow:hidden}
+.stepper button{width:48px;height:46px;border:0;background:transparent;cursor:pointer;font-size:1.3rem;color:var(--mostaza-txt);transition:background .2s}
+.stepper button:hover{background:rgba(233,162,59,.1)}
+.stepper output{flex:1;text-align:center;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:.6em 1em;border-radius:999px;border:1px solid var(--borde);background:var(--bg);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--suave)}
+.chip input:checked + span{background:rgba(233,162,59,.18);border-color:var(--mostaza);color:#8a520a}
+.chip input:focus-visible + span{outline:2px solid var(--mostaza);outline-offset:2px}
+.aviso{font-size:.86rem;padding:.8em 1em;border-radius:12px;background:rgba(216,57,79,.07);border:1px solid rgba(216,57,79,.35);color:#9e2033;margin-bottom:14px;display:none}
+.aviso.show{display:block}
+.form .btn{width:100%;margin-top:6px}
+.legal{font-size:.8rem;color:var(--suave);margin-top:12px;text-align:center}
+
+/* ---------- Horario + mapa ---------- */
+.visitanos{background:var(--bg-2)}
+.visitanos .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:stretch}
+.horario{padding:30px;border-radius:22px;border:1px solid var(--borde);background:var(--surface);box-shadow:var(--sombra)}
+.horario h3{font-size:2.2rem;margin:8px 0 16px}
+.horario table{width:100%;border-collapse:collapse}
+.horario td{padding:.75em 0;border-bottom:1px dashed var(--borde);font-size:.96rem}
+.horario td:last-child{text-align:right;color:var(--suave)}
+.horario tr.hoy td{color:var(--mostaza-txt);font-weight:700}
+.horario tr.hoy td:first-child::after{content:" · hoy";font-weight:500;font-size:.8rem;color:var(--suave)}
+.horario .dir{margin-top:20px;font-size:.93rem;color:var(--suave)}
+.temp-tabs{display:inline-flex;padding:4px;border-radius:999px;border:1px solid var(--borde);background:var(--bg);margin-bottom:10px}
+.temp-tabs button{border:0;background:transparent;cursor:pointer;padding:.5em 1.1em;border-radius:999px;font-weight:700;font-size:.88rem;color:var(--suave);transition:all .25s}
+.temp-tabs button[aria-selected="true"]{background:var(--mar);color:#fff}
+.temp-tabs button span{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;padding:.15em .5em;border-radius:999px;background:var(--sol);color:var(--negro);margin-left:.3em}
+.temp-nota{margin-top:12px;font-size:.85rem;color:var(--suave)}
+.mapa{border-radius:22px;overflow:hidden;border:1px solid var(--borde);min-height:380px;position:relative;background:var(--bg-2)}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.35) sepia(.08)}
+.mapa .btn{position:absolute;left:16px;bottom:16px;z-index:2}
+
+/* ---------- FAQ ---------- */
+.faq-list{margin-top:34px;display:grid;gap:10px;max-width:860px}
+.faq-item{border:1px solid var(--borde);border-radius:16px;background:var(--surface);overflow:hidden}
+.faq-item button{width:100%;text-align:left;padding:20px 22px;background:none;border:0;cursor:pointer;display:flex;justify-content:space-between;gap:18px;align-items:center;font-weight:700;font-size:1.02rem}
+.faq-item button i{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--borde);display:grid;place-items:center;transition:transform .3s,background .3s;font-style:normal;color:var(--mostaza-txt)}
+.faq-item.open button i{transform:rotate(45deg);background:rgba(233,162,59,.15)}
+.faq-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}
+.faq-item.open .faq-panel{grid-template-rows:1fr}
+.faq-panel > div{overflow:hidden}
+.faq-panel p{padding:0 22px 20px;color:var(--suave)}
+
+/* ---------- CTA final ---------- */
+.cta-final{text-align:center;overflow:hidden}
+.cta-final{background:linear-gradient(180deg,var(--bg) 0%,#fff0d2 55%,#ffd9b0 100%);padding-bottom:calc(min(560px,90vw)/2 + 30px)}
+.cta-final::before{content:"";position:absolute;left:50%;bottom:0;width:min(560px,90vw);aspect-ratio:2/1;transform:translateX(-50%);border-radius:999px 999px 0 0;background:radial-gradient(circle at 50% 100%,#fff1c4 0%,var(--sol) 40%,var(--atardecer) 100%);opacity:.9}
+.cta-final .wrap{position:relative}
+.cta-final h2{font-size:clamp(3rem,9vw,6.4rem);max-width:14ch;margin-inline:auto}
+.cta-final .hero-actions{justify-content:center;margin-top:30px;animation:none}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--borde);padding:56px 0 30px;background:var(--bg-2)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.foot-logo{width:min(240px,100%);fill:var(--texto)}
+.foot h4{font-family:var(--f-display);font-weight:800;font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rojo);margin-bottom:12px}
+.foot ul{list-style:none;display:grid;gap:8px}
+.foot a,.foot li{color:var(--suave);font-size:.93rem}
+.foot a:hover{color:var(--texto)}
+.foot p{color:var(--suave);font-size:.93rem;margin-top:16px;max-width:34ch}
+.redes{display:flex;gap:10px;margin-top:18px}
+.redes a{width:42px;height:42px;border-radius:12px;border:1px solid var(--borde);display:grid;place-items:center;background:var(--surface);transition:border-color .2s,color .2s}
+.redes a:hover{border-color:var(--mostaza);color:var(--mostaza-txt)}
+.redes svg{width:18px;height:18px}
+.copy{margin-top:44px;padding-top:22px;border-top:1px solid var(--borde);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;color:var(--suave)}
+
+/* ---------- Flotantes ---------- */
+.contact-float{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -10px rgba(70,45,20,.45);transition:transform .25s}
+.contact-float:hover{transform:scale(1.08)}
+.contact-float svg{width:28px;height:28px}
+.contact-float.ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#8a3ab9)}
+.toTop{position:fixed;right:24px;bottom:88px;z-index:40;width:44px;height:44px;border-radius:50%;border:1px solid var(--borde);background:rgba(255,255,255,.92);backdrop-filter:blur(8px);cursor:pointer;display:grid;place-items:center;opacity:0;transform:translateY(10px);pointer-events:none;transition:all .3s;color:var(--mostaza-txt)}
+.toTop.show{opacity:1;transform:none;pointer-events:auto}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);visibility:hidden;z-index:60;padding:14px 22px;border-radius:14px;background:var(--negro);color:var(--crema);font-weight:700;box-shadow:var(--sombra);transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s .45s;max-width:calc(100% - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .nav-links,.nav-cta .btn{display:none}
+  .burger{display:grid}
+  .hero .wrap,.concepto .wrap,.reservas .wrap,.visitanos .wrap{grid-template-columns:1fr}
+  .vinilo-wrap{max-width:420px;margin:10px auto 0;width:100%}
+  .collage{aspect-ratio:4/3}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .lista{grid-template-columns:1fr}
+  .a1,.a3,.a4{grid-column:span 12;min-height:260px}
+  .evento{grid-template-columns:1fr;gap:6px;padding:20px}
+  .evento .hoy{justify-self:start}
+  .grid-2{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .scroll-hint{display:none}
+  .hero{padding-top:110px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body class="grain">
+
+<!-- Logo de Bombonera (vectorizado) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo-word" viewBox="0 0 524.0 60.1"><path fill-rule="evenodd" d="M496.7 0.4L470.9 59.6L483.2 59.6L492.7 38.4L512.8 38.4L513.3 39.2L522.1 59.6L523.8 59.6L523.9 59.5L498.4 0.9L498.1 0.4ZM502.8 15.3L512.2 36.7L512.1 36.8L493.4 36.7ZM425.1 0.4L425.0 59.5L436.5 59.6L436.6 36.3L448.6 36.3L463.6 59.5L465.6 59.6L450.7 36.4L453.1 36.0L454.8 35.5L456.6 34.7L458.6 33.4L460.8 31.4L462.4 29.4L463.6 27.4L464.5 25.4L465.0 23.9L465.6 21.0L465.6 15.9L465.2 13.9L464.3 11.3L463.2 9.1L462.1 7.4L460.9 5.9L457.9 3.2L455.3 1.7L452.2 0.7L449.4 0.4ZM436.6 2.1L450.6 2.1L453.1 2.6L455.3 3.5L458.0 5.3L460.2 7.5L461.7 9.6L463.2 12.7L464.0 16.0L464.1 19.8L463.7 22.4L463.1 24.5L461.6 27.7L460.1 29.8L458.1 31.8L456.9 32.7L454.3 34.0L450.9 34.7L436.5 34.6ZM373.7 0.4L373.6 59.5L412.3 59.6L412.3 57.9L384.3 57.8L384.3 30.2L407.1 30.1L407.1 28.5L384.3 28.4L384.3 2.2L411.6 2.1L411.6 0.4ZM309.0 0.4L308.9 59.5L319.1 59.6L319.2 14.5L355.2 59.6L357.0 59.6L357.1 0.5L355.4 0.5L355.3 57.0L310.1 0.4ZM191.3 0.4L191.3 59.6L219.3 59.6L222.5 59.1L225.4 57.9L228.4 55.7L230.8 52.9L232.5 49.6L233.0 48.0L233.4 45.5L233.4 43.0L233.1 40.9L232.5 38.8L231.1 35.9L229.5 33.7L227.5 31.8L225.7 30.6L222.6 29.3L225.5 27.4L227.5 25.4L229.3 22.6L230.4 19.7L230.9 16.8L230.8 13.3L229.9 9.7L228.7 7.1L227.3 5.1L224.9 2.8L222.5 1.4L219.8 0.6L217.7 0.4ZM202.2 30.7L220.7 30.6L223.7 31.4L225.4 32.3L227.1 33.6L229.3 36.1L230.6 38.4L231.4 40.7L231.8 43.3L231.7 46.1L231.0 48.8L229.9 51.1L228.5 53.1L226.6 55.0L224.8 56.3L223.0 57.2L220.9 57.8L202.3 57.9ZM202.3 2.1L219.5 2.2L221.6 2.8L222.8 3.4L224.5 4.6L226.0 6.1L227.4 8.1L228.7 11.1L229.2 13.5L229.3 16.4L228.8 19.2L227.5 22.3L225.9 24.6L224.1 26.4L221.4 28.1L220.0 28.6L218.4 28.9L202.2 28.8ZM117.7 0.4L117.6 59.5L127.9 59.5L128.0 18.7L145.5 47.9L146.8 47.9L165.3 17.1L165.4 59.5L174.7 59.6L174.7 0.4L173.5 0.4L146.2 45.9L119.0 0.5ZM0.0 0.4L0.0 59.6L27.9 59.6L31.5 59.0L33.3 58.3L34.9 57.4L36.5 56.2L38.4 54.3L40.2 51.7L41.5 48.6L42.1 45.0L42.0 42.3L41.5 39.8L40.9 38.1L39.9 36.1L38.9 34.6L37.0 32.5L35.5 31.3L33.6 30.2L31.2 29.2L33.5 27.9L36.0 25.6L37.7 23.1L39.1 19.6L39.6 16.3L39.4 12.8L38.5 9.5L37.0 6.5L35.8 4.9L33.3 2.6L30.7 1.2L28.5 0.6L26.4 0.4ZM11.0 30.7L29.3 30.6L32.4 31.4L35.3 33.2L37.2 35.1L38.6 37.1L39.6 39.2L40.4 42.5L40.5 44.5L40.0 47.8L38.8 50.7L37.0 53.3L35.5 54.8L33.8 56.1L31.4 57.3L29.5 57.8L11.1 57.9ZM11.1 2.1L28.2 2.2L30.0 2.7L31.3 3.3L32.8 4.3L34.5 5.9L36.3 8.5L37.4 11.2L37.9 13.7L37.9 17.1L37.1 20.3L36.1 22.4L34.9 24.2L33.0 26.2L30.3 28.0L29.0 28.5L27.1 28.9L11.0 28.8ZM268.2 0.0L265.8 0.2L263.1 0.7L260.5 1.5L257.4 2.9L254.6 4.6L252.5 6.2L249.0 9.7L247.0 12.3L245.7 14.4L243.4 19.4L242.7 21.6L241.9 25.4L241.6 28.6L241.6 31.4L242.0 35.2L242.5 37.6L243.3 40.3L244.6 43.5L245.9 46.0L247.6 48.6L249.7 51.2L251.6 53.1L255.7 56.2L259.1 58.0L260.9 58.7L263.4 59.4L265.7 59.8L270.4 60.0L273.3 59.7L275.7 59.2L277.9 58.5L281.2 57.0L285.4 54.2L289.1 50.6L292.1 46.5L293.8 43.3L294.9 40.6L296.2 35.7L296.6 32.6L296.7 29.9L296.2 24.6L295.5 21.6L294.4 18.4L291.7 13.1L289.8 10.4L288.1 8.4L285.7 6.1L283.9 4.7L281.9 3.4L279.2 2.0L276.8 1.1L273.9 0.4L271.7 0.1ZM268.8 1.6L273.6 2.0L275.7 2.5L278.2 3.4L281.8 5.3L283.8 6.7L285.9 8.5L287.8 10.5L289.8 13.1L292.4 17.7L294.0 22.1L294.6 24.7L295.0 27.8L294.9 33.2L293.9 38.2L292.6 41.8L291.5 44.1L289.6 47.2L288.0 49.3L285.0 52.4L283.1 53.9L280.6 55.5L277.9 56.8L275.5 57.6L272.5 58.2L270.0 58.4L265.9 58.2L263.7 57.8L263.1 57.5L263.1 2.5L263.3 2.3L265.3 1.9ZM76.9 0.0L73.8 0.3L71.4 0.8L68.4 1.8L65.7 3.1L63.4 4.5L60.7 6.6L57.0 10.5L54.2 14.7L52.7 17.8L51.6 20.8L50.5 25.9L50.3 28.0L50.3 32.0L51.1 37.3L51.9 40.1L53.0 42.9L54.4 45.7L55.9 48.1L58.1 50.9L60.6 53.4L63.0 55.3L65.2 56.7L69.3 58.6L73.6 59.7L76.6 60.0L79.1 60.0L84.0 59.3L86.6 58.5L89.5 57.2L92.9 55.1L94.9 53.5L98.6 49.6L101.4 45.4L102.9 42.3L104.0 39.3L105.1 34.2L105.3 32.1L105.3 28.0L104.8 24.2L104.2 21.7L102.6 17.3L101.2 14.5L99.0 11.1L97.4 9.1L94.6 6.3L90.9 3.6L86.9 1.6L84.8 0.9L82.0 0.3ZM77.5 1.6L81.7 1.9L84.7 2.6L86.9 3.4L89.3 4.6L91.8 6.2L93.8 7.8L96.2 10.2L99.0 13.9L101.5 18.7L103.1 23.8L103.7 28.3L103.7 31.7L103.4 34.5L102.6 38.1L101.8 40.5L99.6 45.1L98.2 47.3L96.5 49.5L92.7 53.2L90.6 54.7L87.5 56.4L82.9 57.9L78.6 58.4L74.6 58.2L71.6 57.6L71.4 57.4L71.4 2.6L71.6 2.4L73.9 1.9Z"/></symbol><symbol id="logo-full" viewBox="0 0 524.2 104.2"><path fill-rule="evenodd" d="M428.2 91.2L428.2 92.3L435.3 92.3L435.3 91.2ZM467.8 85.6L467.8 93.9L468.1 95.8L468.8 97.3L469.7 98.2L470.5 98.6L471.4 98.8L473.2 98.7L475.4 97.8L477.0 96.3L477.4 95.7L477.5 97.4L477.7 98.0L478.3 98.5L479.1 98.5L479.1 97.5L478.6 97.2L478.6 85.6L477.4 85.6L477.4 93.9L476.3 95.8L475.6 96.5L474.1 97.4L473.0 97.7L471.7 97.7L470.8 97.4L469.8 96.5L469.4 95.7L469.0 93.7L469.0 85.6ZM411.7 85.5L410.5 85.6L409.2 86.1L407.5 87.6L406.9 88.6L406.8 85.7L405.6 85.6L405.6 98.5L406.8 98.5L406.8 90.4L407.1 89.6L407.8 88.5L408.9 87.5L410.1 86.9L411.7 86.7ZM517.0 85.4L516.0 85.6L514.6 86.2L512.8 87.8L512.2 88.7L511.6 90.2L511.4 92.6L511.6 93.8L512.4 95.7L514.1 97.6L515.8 98.5L517.2 98.8L518.4 98.8L520.4 98.3L521.6 97.6L522.8 96.4L523.1 95.6L522.1 95.4L521.1 96.7L519.2 97.7L516.6 97.7L515.4 97.2L514.0 96.0L513.0 94.3L512.7 92.7L524.0 92.6L524.1 91.2L523.4 88.9L522.6 87.7L521.6 86.7L519.5 85.6ZM512.6 91.4L513.0 89.7L513.9 88.2L515.3 87.0L517.0 86.4L518.6 86.4L519.4 86.6L521.1 87.6L522.4 89.3L522.9 90.9L522.8 91.6L512.7 91.6ZM508.3 85.6L507.3 85.6L507.2 88.3L505.6 86.6L504.9 86.1L503.4 85.5L501.5 85.4L500.2 85.7L498.9 86.4L497.7 87.5L497.0 88.5L496.2 90.8L496.2 93.4L497.2 95.9L498.7 97.6L500.7 98.6L502.8 98.8L504.1 98.5L505.3 97.9L506.1 97.3L507.1 96.1L507.2 96.2L507.2 99.3L507.0 100.3L506.4 101.4L505.7 102.1L503.8 103.0L501.3 103.1L499.0 102.3L498.0 101.5L497.4 100.6L496.6 101.1L496.8 101.6L497.8 102.7L498.8 103.4L499.7 103.8L501.2 104.1L503.2 104.1L504.3 103.9L506.6 102.8L507.8 101.4L508.4 99.3ZM501.6 86.5L503.1 86.5L504.9 87.2L506.2 88.3L507.2 89.9L507.1 94.7L506.7 95.5L505.8 96.5L504.8 97.2L503.5 97.7L501.6 97.7L499.9 97.0L498.3 95.4L497.8 94.5L497.4 93.2L497.4 91.1L498.1 89.1L498.8 88.1L499.7 87.3L500.8 86.7ZM491.7 86.1L490.0 85.4L487.7 85.6L485.6 86.6L484.5 87.6L483.8 88.6L483.7 85.6L482.6 85.6L482.6 98.5L483.8 98.5L483.9 90.2L484.6 88.9L485.6 87.8L486.8 87.0L488.4 86.5L489.5 86.5L490.7 87.0L491.5 88.0L492.0 90.2L492.0 98.5L493.2 98.5L493.1 89.0L492.7 87.5ZM457.9 85.4L456.3 85.8L455.3 86.3L453.5 88.0L452.4 90.4L452.2 92.0L452.3 93.3L452.7 94.7L453.3 95.9L454.6 97.4L456.9 98.6L459.2 98.8L460.6 98.5L461.5 98.1L462.4 97.5L463.5 96.4L464.6 94.3L464.9 92.9L464.9 91.3L464.5 89.6L463.9 88.4L462.5 86.8L460.3 85.6ZM457.8 86.5L459.8 86.6L461.4 87.4L462.9 89.1L463.5 90.5L463.7 91.6L463.5 93.7L462.5 95.7L460.9 97.1L459.2 97.7L457.0 97.5L455.6 96.7L454.2 95.1L453.5 93.2L453.5 91.1L454.3 89.0L455.9 87.3ZM418.4 85.4L416.8 85.8L415.8 86.3L414.0 88.0L412.9 90.4L412.7 92.3L413.2 94.7L414.0 96.2L415.1 97.4L417.4 98.6L419.7 98.8L421.1 98.5L422.0 98.1L422.9 97.5L424.0 96.4L425.1 94.3L425.4 92.9L425.4 91.3L425.0 89.6L424.4 88.4L423.0 86.8L420.8 85.6ZM418.3 86.5L420.3 86.6L421.9 87.4L423.4 89.1L424.0 90.5L424.2 91.6L424.0 93.7L423.0 95.7L421.4 97.1L419.7 97.7L418.3 97.7L417.5 97.5L416.1 96.7L414.7 95.1L414.0 93.2L414.0 91.0L414.8 89.0L416.4 87.3ZM389.3 85.4L387.6 85.8L386.8 86.2L386.0 86.9L385.6 87.5L385.3 88.5L385.3 89.7L385.5 90.4L386.4 91.4L387.2 91.8L390.9 92.8L392.6 93.5L393.4 94.5L393.4 95.8L393.1 96.4L392.1 97.3L390.3 97.8L389.1 97.8L387.4 97.4L386.1 96.7L385.2 95.9L384.6 96.7L385.4 97.5L387.1 98.4L389.0 98.8L390.4 98.8L392.2 98.4L393.3 97.8L394.0 97.1L394.6 95.7L394.6 94.3L394.4 93.7L393.6 92.8L392.7 92.3L389.1 91.3L387.0 90.4L386.6 89.9L386.4 89.1L386.6 88.0L387.6 86.9L389.3 86.4L390.7 86.4L392.0 86.7L393.1 87.3L393.8 88.0L394.4 87.2L393.5 86.3L392.3 85.7L390.9 85.4ZM372.1 87.0L372.0 87.2L372.5 88.0L374.6 86.8L375.6 86.5L377.1 86.4L378.8 86.9L379.9 87.9L380.3 88.6L380.6 89.7L380.6 91.5L380.4 91.6L377.8 91.0L375.5 91.0L374.4 91.2L372.8 91.9L371.8 92.8L371.2 94.0L371.2 95.7L371.9 97.2L372.6 97.9L373.7 98.5L374.9 98.8L376.1 98.8L378.4 98.2L379.5 97.6L380.6 96.6L381.0 98.2L381.8 98.6L382.3 98.5L382.3 97.5L381.8 97.2L381.8 89.7L381.4 88.1L380.8 87.1L379.7 86.1L377.6 85.4L375.1 85.6L373.7 86.1ZM372.4 93.9L372.6 93.5L373.7 92.5L375.5 91.9L378.1 91.9L380.6 92.6L380.6 95.0L380.2 95.8L378.9 97.0L377.9 97.5L376.7 97.8L374.9 97.8L373.3 97.0L372.6 96.1L372.3 95.3ZM398.1 81.2L398.1 85.5L396.3 85.6L396.3 86.6L398.1 86.7L398.2 97.2L398.5 97.8L399.5 98.6L400.3 98.8L401.8 98.7L403.4 98.0L403.1 97.2L402.9 97.1L401.9 97.6L400.4 97.6L399.6 97.0L399.3 96.2L399.3 86.7L402.3 86.6L402.4 85.7L399.3 85.5L399.3 81.2ZM439.4 80.8L439.4 98.5L451.2 98.5L451.1 97.4L440.6 97.3L440.6 80.9ZM357.0 82.2L355.8 83.3L354.7 84.8L354.0 86.3L353.5 88.3L353.4 89.8L353.8 92.3L354.2 93.4L355.3 95.3L356.6 96.7L358.0 97.7L359.6 98.4L361.5 98.7L363.5 98.5L364.9 98.0L366.6 96.9L367.6 95.9L367.7 98.5L368.8 98.5L368.8 90.0L363.7 90.0L363.7 90.9L367.7 91.0L367.7 94.4L366.4 95.8L365.3 96.6L364.3 97.1L362.8 97.5L360.3 97.4L359.4 97.1L357.7 96.1L356.5 94.9L355.8 93.9L355.2 92.7L354.7 90.8L354.7 88.5L355.3 86.3L356.4 84.4L358.3 82.7L359.9 82.0L361.1 81.8L363.8 82.1L365.6 83.0L366.7 84.1L367.3 85.1L368.3 84.6L367.9 83.7L366.5 82.2L365.8 81.7L364.2 81.0L362.6 80.7L360.8 80.7L358.8 81.2ZM496.7 0.4L470.9 59.6L483.2 59.6L492.7 38.4L512.8 38.4L513.3 39.2L522.1 59.6L523.8 59.6L523.9 59.5L498.4 0.9L498.1 0.4ZM502.8 15.3L512.2 36.7L512.1 36.8L493.4 36.7ZM425.1 0.4L425.0 59.5L436.5 59.6L436.6 36.3L448.6 36.3L463.6 59.5L465.6 59.6L450.7 36.4L453.1 36.0L454.8 35.5L456.6 34.7L458.6 33.4L460.8 31.4L462.4 29.4L463.6 27.4L464.5 25.4L465.0 23.9L465.6 21.0L465.6 15.9L465.2 13.9L464.3 11.3L463.2 9.1L462.1 7.4L460.9 5.9L457.9 3.2L455.3 1.7L452.2 0.7L449.4 0.4ZM436.6 2.1L450.6 2.1L453.1 2.6L455.3 3.5L458.0 5.3L460.2 7.5L461.7 9.6L463.2 12.7L464.0 16.0L464.1 19.8L463.7 22.4L463.1 24.5L461.6 27.7L460.1 29.8L458.1 31.8L456.9 32.7L454.3 34.0L450.9 34.7L436.5 34.6ZM373.7 0.4L373.6 59.5L412.3 59.6L412.3 57.9L384.3 57.8L384.3 30.2L407.1 30.1L407.1 28.5L384.3 28.4L384.3 2.2L411.6 2.1L411.6 0.4ZM309.0 0.4L308.9 59.5L319.1 59.6L319.2 14.5L355.2 59.6L357.0 59.6L357.1 0.5L355.4 0.5L355.3 57.0L310.1 0.4ZM191.3 0.4L191.3 59.6L219.3 59.6L222.5 59.1L225.4 57.9L228.4 55.7L230.8 52.9L232.5 49.6L233.0 48.0L233.4 45.5L233.4 43.0L233.1 40.9L232.5 38.8L231.1 35.9L229.5 33.7L227.5 31.8L225.7 30.6L222.6 29.3L225.5 27.4L227.5 25.4L229.3 22.6L230.4 19.7L230.9 16.8L230.8 13.3L229.9 9.7L228.7 7.1L227.3 5.1L224.9 2.8L222.5 1.4L219.8 0.6L217.7 0.4ZM202.2 30.7L220.7 30.6L223.7 31.4L225.4 32.3L227.1 33.6L229.3 36.1L230.6 38.4L231.4 40.7L231.8 43.3L231.7 46.1L231.0 48.8L229.9 51.1L228.5 53.1L226.6 55.0L224.8 56.3L223.0 57.2L220.9 57.8L202.3 57.9ZM202.3 2.1L219.5 2.2L221.6 2.8L222.8 3.4L224.5 4.6L226.0 6.1L227.4 8.1L228.7 11.1L229.2 13.5L229.3 16.4L228.8 19.2L227.5 22.3L225.9 24.6L224.1 26.4L221.4 28.1L220.0 28.6L218.4 28.9L202.2 28.8ZM117.7 0.4L117.6 59.5L127.9 59.5L128.0 18.7L145.5 47.9L146.8 47.9L165.3 17.1L165.4 59.5L174.7 59.6L174.7 0.4L173.5 0.4L146.2 45.9L119.0 0.5ZM0.0 0.4L0.0 59.6L27.9 59.6L31.5 59.0L33.3 58.3L34.9 57.4L36.5 56.2L38.4 54.3L40.2 51.7L41.5 48.6L42.1 45.0L42.0 42.3L41.5 39.8L40.9 38.1L39.9 36.1L38.9 34.6L37.0 32.5L35.5 31.3L33.6 30.2L31.2 29.2L33.5 27.9L36.0 25.6L37.7 23.1L39.1 19.6L39.6 16.3L39.4 12.8L38.5 9.5L37.0 6.5L35.8 4.9L33.3 2.6L30.7 1.2L28.5 0.6L26.4 0.4ZM11.0 30.7L29.3 30.6L32.4 31.4L35.3 33.2L37.2 35.1L38.6 37.1L39.6 39.2L40.4 42.5L40.5 44.5L40.0 47.8L38.8 50.7L37.0 53.3L35.5 54.8L33.8 56.1L31.4 57.3L29.5 57.8L11.1 57.9ZM11.1 2.1L28.2 2.2L30.0 2.7L31.3 3.3L32.8 4.3L34.5 5.9L36.3 8.5L37.4 11.2L37.9 13.7L37.9 17.1L37.1 20.3L36.1 22.4L34.9 24.2L33.0 26.2L30.3 28.0L29.0 28.5L27.1 28.9L11.0 28.8ZM268.2 0.0L265.8 0.2L263.1 0.7L260.5 1.5L257.4 2.9L254.6 4.6L252.5 6.2L249.0 9.7L247.0 12.3L245.7 14.4L243.4 19.4L242.7 21.6L241.9 25.4L241.6 28.6L241.6 31.4L242.0 35.2L242.5 37.6L243.3 40.3L244.6 43.5L245.9 46.0L247.6 48.6L249.7 51.2L251.6 53.1L255.7 56.2L259.1 58.0L260.9 58.7L263.4 59.4L265.7 59.8L270.4 60.0L273.3 59.7L275.7 59.2L277.9 58.5L281.2 57.0L285.4 54.2L289.1 50.6L292.1 46.5L293.8 43.3L294.9 40.6L296.2 35.7L296.6 32.6L296.7 29.9L296.2 24.6L295.5 21.6L294.4 18.4L291.7 13.1L289.8 10.4L288.1 8.4L285.7 6.1L283.9 4.7L281.9 3.4L279.2 2.0L276.8 1.1L273.9 0.4L271.7 0.1ZM268.8 1.6L273.6 2.0L275.7 2.5L278.2 3.4L281.8 5.3L283.8 6.7L285.9 8.5L287.8 10.5L289.8 13.1L292.4 17.7L294.0 22.1L294.6 24.7L295.0 27.8L294.9 33.2L293.9 38.2L292.6 41.8L291.5 44.1L289.6 47.2L288.0 49.3L285.0 52.4L283.1 53.9L280.6 55.5L277.9 56.8L275.5 57.6L272.5 58.2L270.0 58.4L265.9 58.2L263.7 57.8L263.1 57.5L263.1 2.5L263.3 2.3L265.3 1.9ZM76.9 0.0L73.8 0.3L71.4 0.8L68.4 1.8L65.7 3.1L63.4 4.5L60.7 6.6L57.0 10.5L54.2 14.7L52.7 17.8L51.6 20.8L50.5 25.9L50.3 28.0L50.3 32.0L51.1 37.3L51.9 40.1L53.0 42.9L54.4 45.7L55.9 48.1L58.1 50.9L60.6 53.4L63.0 55.3L65.2 56.7L69.3 58.6L73.6 59.7L76.6 60.0L79.1 60.0L84.0 59.3L86.6 58.5L89.5 57.2L92.9 55.1L94.9 53.5L98.6 49.6L101.4 45.4L102.9 42.3L104.0 39.3L105.1 34.2L105.3 32.1L105.3 28.0L104.8 24.2L104.2 21.7L102.6 17.3L101.2 14.5L99.0 11.1L97.4 9.1L94.6 6.3L90.9 3.6L86.9 1.6L84.8 0.9L82.0 0.3ZM77.5 1.6L81.7 1.9L84.7 2.6L86.9 3.4L89.3 4.6L91.8 6.2L93.8 7.8L96.2 10.2L99.0 13.9L101.5 18.7L103.1 23.8L103.7 28.3L103.7 31.7L103.4 34.5L102.6 38.1L101.8 40.5L99.6 45.1L98.2 47.3L96.5 49.5L92.7 53.2L90.6 54.7L87.5 56.4L82.9 57.9L78.6 58.4L74.6 58.2L71.6 57.6L71.4 57.4L71.4 2.6L71.6 2.4L73.9 1.9Z"/></symbol></svg>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" class="logo" aria-label="Bombonera Gastro-Lounge, inicio">
+      <svg viewBox="0 0 524 60.1" aria-hidden="true"><use href="#logo-word"/></svg>
+      <small>Gastro‑Lounge</small>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#concepto">Concepto</a></li>
+      <li><a href="#carta">Carta</a></li>
+      <li><a href="#ambientes">Ambientes</a></li>
+      <li><a href="#agenda">Agenda</a></li>
+      <li><a href="#historial">Eventos</a></li>
+      <li><a href="#visitanos">Visítanos</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#reservas" class="btn btn-main">Reservar mesa</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+  <a href="#concepto">Concepto</a>
+  <a href="#carta">Carta</a>
+  <a href="#ambientes">Ambientes</a>
+  <a href="#agenda">Agenda</a>
+  <a href="#historial">Eventos</a>
+  <a href="#visitanos">Visítanos</a>
+  <a href="#reservas" class="btn btn-main">Reservar mesa</a>
+</nav>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <div class="status" id="status" role="status"><span class="dot"></span><span id="statusText">Comprobando horario…</span></div>
+      <h1>
+        <span class="line"><span>Sabores para</span></span>
+        <span class="line"><span><em>compartir,</em> noches</span></span>
+        <span class="line"><span>para quedarse.</span></span>
+      </h1>
+      <p class="hero-sub">En la playa de Tavernes de la Valldigna. Bravas caseras, burgers de la casa, cócteles bien fríos y tardeo al sol con la brisa del mar.</p>
+      <div class="hero-actions">
+        <a href="#reservas" class="btn btn-main">
+          Reservar mesa
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#carta" class="btn btn-linea">Ver la carta</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>Burgers</strong>De autor, también en pollo</div>
+        <div><strong>Cócteles</strong>Mojitos, pomadas y spritz</div>
+        <div><strong>Terraza</strong>Al sol, junto al mar</div>
+      </div>
+    </div>
+
+    <div class="vinilo-wrap" aria-hidden="true">
+      <div class="sol"></div>
+      <div class="vinilo"><div class="label"><svg viewBox="0 0 524.2 104.2"><use href="#logo-full"/></svg></div></div>
+    </div>
+  </div>
+  <svg class="olas" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path class="o1" d="M0 70 C 180 30 360 30 540 62 S 900 100 1080 66 S 1350 30 1440 52 V120 H0Z"/><path class="o2" d="M0 88 C 200 60 380 62 560 84 S 920 112 1100 86 S 1360 62 1440 76 V120 H0Z"/></svg>
+</section>
+
+<div class="franja" aria-hidden="true">
+  <div class="franja-track">
+    <span>Tardeo al sol</span><span>Cócteles bien fríos</span><span>Bravas caseras</span><span>Burgers</span><span>Brisa del mar</span><span>Spritz</span><span>Vermut</span><span>Playa de Tavernes</span>
+    <span>Bravas caseras</span><span>Burgers</span><span>Croquetas</span><span>Cocktails</span><span>Spritz</span><span>Vermut</span><span>Terraza</span><span>Playa de Tavernes</span>
+  </div>
+</div>
+<svg class="olas-abajo" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1440 V18 C 1260 46 1080 48 900 30 S 540 4 360 22 S 120 52 0 34 Z"/></svg>
+
+<!-- ================= CONCEPTO ================= -->
+<section class="concepto" id="concepto">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">El concepto</span>
+      <h2>Comer, brindar <em>y quedarse</em></h2>
+      <p class="lead">Empiezas con un vermut casero o una cassalleta, sigues con unas bravas al estilo Bombonera y una burger de la casa, y acabas la noche con un cóctel y buena música. Así se vive la Bombonera.</p>
+      <div class="pilares">
+        <div class="pilar">
+          <div class="pilar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11h18M5 11a7 7 0 0 0 14 0M12 4v3M8 5l1 2M16 5l-1 2"/></svg></div>
+          <div><h3>Gastro</h3><p>Burrata, bravas caseras, croquetas Gastrobombo y burgers de 200 g de la casa.</p></div>
+        </div>
+        <div class="pilar">
+          <div class="pilar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h14l-7 8zM12 12v7M8 20h8"/></svg></div>
+          <div><h3>Cocktails &amp; spritz</h3><p>Mojitos Le Fruit, pomadas de Menorca, Porn Star Martini, spritz y vermut para el tardeo.</p></div>
+        </div>
+        <div class="pilar">
+          <div class="pilar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V6l11-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></div>
+          <div><h3>Lounge &amp; noche</h3><p>Terraza junto al mar, DJ sets y conciertos cuando cae el sol.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="collage reveal d1" aria-hidden="true">
+      <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div>
+      <div class="t t1">Bravas,<br>burgers</div>
+      <svg class="logo-c" viewBox="0 0 524.2 104.2"><use href="#logo-full"/></svg>
+      <div class="t t3">Desde la playa<br>de Tavernes</div>
+      <div class="t t2">&amp;<br>cocktails</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CARTA ================= -->
+<section class="carta" id="carta">
+  <div class="wrap">
+    <div class="carta-head reveal">
+      <div>
+        <span class="eyebrow">Nuestra carta</span>
+        <h2>Para picar, <em>brindar</em> y repetir</h2>
+      </div>
+      <label class="buscador">
+        <span class="sr">Buscar en la carta</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="buscar" placeholder="Busca: mojito, burger, albariño…" autocomplete="off">
+      </label>
+    </div>
+    <div class="segment" role="group" aria-label="Tipo de carta">
+      <button type="button" data-grupo="cocina" aria-pressed="true">Cocina</button>
+      <button type="button" data-grupo="barra" aria-pressed="false">Barra</button>
+    </div>
+    <div class="tabs" role="tablist" id="tabs" aria-label="Secciones de la carta"></div>
+    <div class="secciones" id="secciones" aria-live="polite"></div>
+    <p class="nota-carta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      <span>Si tienes alguna alergia o intolerancia, comunícaselo a nuestro personal y te informamos de los alérgenos de cada plato. IVA incluido.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ================= AMBIENTES ================= -->
+<section id="ambientes">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Ambientes</span>
+      <h2>Un sitio, <em>muchos planes</em></h2>
+      <p class="lead">De la comida en familia al tardeo con amigos y la noche con DJ. Elige tu rincón al reservar.</p>
+    </div>
+    <div class="ambientes-grid">
+      <article class="amb a1 reveal"><div class="foto f-terraza"></div><span class="num">01</span><div><h3>Terraza</h3><p>Brisa del mar, atardeceres y el mejor sitio para el tardeo.</p></div></article>
+      <article class="amb a3 reveal"><div class="foto f-barra"></div><span class="num">02</span><div><h3>Barra</h3><p>Mira cómo preparamos tu mojito y charla con el equipo.</p></div></article>
+      <article class="amb a4 reveal d1"><div class="foto f-pista"></div><span class="num">03</span><div><h3>La pista</h3><p>DJ sets y conciertos cuando cae la noche. Ideal para celebraciones.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AGENDA ================= -->
+<section class="agenda" id="agenda">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Agenda semanal</span>
+      <h2>Cada día tiene <em>su plan</em></h2>
+    </div>
+    <div class="eventos" id="eventos"></div>
+  </div>
+</section>
+
+<!-- ================= EVENTOS ================= -->
+<section class="historial" id="historial">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Eventos</span>
+      <h2>Lo que viene y lo que <em>ha sonado</em></h2>
+      <p class="lead">Vermut, conciertos, DJs y fiestas en la Bombonera. Apunta los próximos y repasa los que ya han pasado por casa.</p>
+    </div>
+    <div class="pasados-head" style="margin-top:34px"><h3>Próximos eventos</h3><p id="proximosCount"></p></div>
+    <div id="proximoEv"></div>
+    <div class="pasados-head"><h3>Eventos pasados</h3><p id="pasadosCount"></p></div>
+    <div id="pasadosEv"></div>
+    <div class="ver-mas"><button type="button" class="btn btn-linea" id="verMasEv" aria-expanded="false">Ver todos los eventos</button></div>
+    <p class="ig-cta">Toda la programación, al día en <a id="igEventos" href="#" target="_blank" rel="noopener"></a></p>
+  </div>
+</section>
+
+<!-- ================= RESERVAS ================= -->
+<section class="reservas" id="reservas">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Reservas</span>
+      <h2>Te guardamos <em>la mejor mesa</em></h2>
+      <p class="lead">Rellena el formulario y te enviamos la solicitud con un toque. Te confirmamos en cuanto la veamos. Para grupos grandes y celebraciones, escríbenos.</p>
+      <ul class="info-list">
+        <li><div class="pilar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><strong>Dirección</strong><span id="dirText"></span></div></li>
+        <li><div class="pilar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></div><div><strong>Instagram</strong><a id="igText" href="#" target="_blank" rel="noopener"></a></div></li>
+        <li id="liTel"><div class="pilar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div><div><strong>Teléfono</strong><a id="telLink" href="#"></a></div></li>
+        <li id="liMail"><div class="pilar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><strong>Email</strong><a id="mailLink" href="#"></a></div></li>
+      </ul>
+    </div>
+
+    <form class="form reveal d1" id="formReserva" novalidate>
+      <h3>Reserva tu mesa</h3>
+      <p>Solo te llevará un minuto.</p>
+      <div class="aviso" id="aviso"></div>
+      <div class="grid-2">
+        <div class="campo"><label for="fecha">Fecha</label><input type="date" id="fecha" required><span class="msg"></span></div>
+        <div class="campo"><label for="hora">Hora</label><select id="hora" required><option value="">Elige fecha primero</option></select><span class="msg"></span></div>
+      </div>
+      <div class="campo">
+        <span class="lbl" id="lblPersonas">Personas</span>
+        <div class="stepper" role="group" aria-labelledby="lblPersonas">
+          <button type="button" data-step="-1" aria-label="Menos personas">−</button>
+          <output id="personas" aria-live="polite">2</output>
+          <button type="button" data-step="1" aria-label="Más personas">+</button>
+        </div>
+      </div>
+      <div class="campo">
+        <span class="lbl">Zona preferida</span>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="zona" value="Terraza" checked><span>Terraza</span></label>
+          <label class="chip"><input type="radio" name="zona" value="Barra"><span>Barra</span></label>
+          <label class="chip"><input type="radio" name="zona" value="Grupo / celebración"><span>Grupo / celebración</span></label>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="campo"><label for="nombre">Nombre</label><input type="text" id="nombre" autocomplete="name" required><span class="msg"></span></div>
+        <div class="campo"><label for="tel">Teléfono</label><input type="tel" id="tel" autocomplete="tel" inputmode="tel" required><span class="msg"></span></div>
+      </div>
+      <div class="campo"><label for="notas">¿Algo que debamos saber? (opcional)</label><textarea id="notas" placeholder="Cumpleaños, alergias, trona…"></textarea></div>
+      <button class="btn btn-main" type="submit"><span id="btnEnviarTxt">Enviar reserva</span></button>
+      <p class="legal" id="legalTxt">La reserva queda confirmada cuando te respondamos.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= HORARIO Y MAPA ================= -->
+<section class="visitanos" id="visitanos">
+  <div class="wrap">
+    <div class="horario reveal">
+      <span class="eyebrow">Horario</span>
+      <h3>Cuándo encontrarnos</h3>
+      <div class="temp-tabs" id="tempTabs" role="tablist" aria-label="Temporada"></div>
+      <table><tbody id="tablaHorario"></tbody></table>
+      <p class="temp-nota" id="tempNota"></p>
+      <p class="dir" id="dirHorario"></p>
+    </div>
+    <div class="mapa reveal d1">
+      <iframe id="mapa" title="Mapa de ubicación de Bombonera Gastro-Lounge" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="btn btn-main" id="comoLlegar" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 18-8-8 18-2-8z"/></svg>
+        Cómo llegar
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Antes de <em>venir</em></h2>
+    </div>
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-final">
+  <div class="wrap reveal">
+    <span class="eyebrow">Te esperamos</span>
+    <h2>La próxima ronda, <em>al sol de la Bombonera</em></h2>
+    <div class="hero-actions">
+      <a href="#reservas" class="btn btn-main">Reservar ahora</a>
+      <a id="ctaTel" class="btn btn-linea" href="#">Llamar</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#inicio" aria-label="Bombonera Gastro-Lounge, inicio"><svg class="foot-logo" viewBox="0 0 524.2 104.2"><use href="#logo-full"/></svg></a>
+        <p>Cocina para compartir, cócteles, terraza y música en la playa de Tavernes de la Valldigna.</p>
+        <div class="redes">
+          <a id="igLink" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a id="fbLink" href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg></a>
+          <a id="waLink2" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Explora</h4><ul><li><a href="#carta">Carta</a></li><li><a href="#ambientes">Ambientes</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#historial">Eventos</a></li><li><a href="#faq">Preguntas</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li id="footDir"></li><li><a id="footIg" href="#" target="_blank" rel="noopener"></a></li><li><a id="footTel" href="#"></a></li><li><a id="footMail" href="#"></a></li></ul></div>
+      <div><h4>Hoy</h4><ul><li id="footHoy"></li><li><a href="#reservas">Reservar mesa →</a></li></ul></div>
+    </div>
+    <div class="copy"><span>© <span id="year"></span> Bombonera Gastro‑Lounge. Todos los derechos reservados.</span><span>Aviso legal · Privacidad · Cookies</span></div>
+  </div>
+</footer>
+
+<a class="contact-float" id="contactFloat" href="#" target="_blank" rel="noopener" aria-label="Escríbenos"></a>
+<button class="toTop" id="toTop" aria-label="Volver arriba"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   CONFIGURACIÓN DEL NEGOCIO — EDITA SOLO ESTE BLOQUE
+   Lo marcado con [EDITAR] son datos que faltan o de ejemplo.
+   ========================================================= */
+const CONFIG = {
+  nombre: "Bombonera Gastro-Lounge",
+  direccion: "Carrer del Vadell, 3 · 46760 Playa de Tavernes de la Valldigna (Valencia)",
+  mapaQuery: "La Bombonera, Carrer del Vadell 3, 46760 Tavernes de la Valldigna",
+  instagramUser: "bomboneragl",
+  // [EDITAR] Deja en blanco ("") lo que no tengas: la web oculta esos elementos sola.
+  telefono: "+34 635 09 89 80",             // de la bio de Instagram
+  whatsapp: "",                             // solo dígitos con prefijo, p. ej. "34600000000". Si está vacío, las reservas van por Instagram.
+  email: "",
+  facebook: "",
+  zonaHoraria: "Europe/Madrid",
+  // HORARIOS POR TEMPORADA. Días: 0=domingo … 6=sábado.
+  // Cada tramo es ["apertura","cierre"]. Si no hay hora de cierre fija, pon null y la web mostrará "Desde las …".
+  // Si cierra pasada la medianoche, pon la hora tal cual (p. ej. "03:00").
+  horarios: {
+    invierno: {
+      nombre: "Invierno",
+      dias: { 5: [["18:00", null]], 6: [["12:00", null]], 0: [["12:00", null]] }
+    },
+    verano: {
+      nombre: "Verano",
+      desde: "06-01", hasta: "09-30",       // [EDITAR] fechas de la temporada de verano (mes-día)
+      dias: {
+        4: [["19:00","02:00"]],
+        5: [["19:00","03:30"]],
+        6: [["13:00","03:30"]],
+        0: [["13:00","00:00"]]
+      }
+    }
+  },
+  cierreSinHora: "01:00",                   // solo uso interno (aviso abierto/cerrado y reservas) cuando el cierre es null
+  ultimaReservaAntesDeCierre: 120           // minutos
+};
+
+/* Secciones de la carta (nombres como en la carta impresa) */
+const SECCIONES = [
+  {id:"empezar",   g:"cocina", n:"Aperitivos"},
+  {id:"seguimos",  g:"cocina", n:"Entrantes", nota:"Para compartir"},
+  {id:"continuamos", g:"cocina", n:"Burgers y pepitos", nota:"Todas las hamburguesas también disponibles en pollo"},
+  {id:"terminamos",g:"cocina", n:"Postres"},
+  {id:"cocktails", g:"barra",  n:"Cocktails Mixer", rojo:true, nota:"Le Fruit: fresa, mango, maracuyá o manzana verde"},
+  {id:"spritz",    g:"barra",  n:"Spritz & aperitivos"},
+  {id:"vermut",    g:"barra",  n:"Vermut", rojo:true},
+  {id:"sin",       g:"barra",  n:"Sin alcohol"},
+  {id:"tintos",    g:"barra",  n:"Vinos tintos", rojo:true, nota:"Copa · Botella"},
+  {id:"blancos",   g:"barra",  n:"Vinos blancos", nota:"Copa · Botella"},
+  {id:"sangrias",  g:"barra",  n:"Sangrías", rojo:true, nota:"Por copa"},
+  {id:"cava",      g:"barra",  n:"Cava & Champagne", nota:"Por botella"}
+];
+
+/* Carta real. p = precio; copa/bot = precios de vino. t: "casa" | "veg" */
+const CARTA = [
+  // ---- Cocina
+  {s:"empezar", n:"La Cassalleta de la Safor", p:1.5},
+  {s:"empezar", n:"Vermut casero", p:3.5, t:["casa"]},
+  {s:"empezar", n:"Aperol, Campari", p:7},
+
+  {s:"seguimos", n:"Burrata", d:"Con tomates del terreno, ventresca y aceitunas.", p:14},
+  {s:"seguimos", n:"Bravas caseras", d:"Al estilo Bombonera.", p:8, t:["casa"]},
+  {s:"seguimos", n:"Croquetas surtidas Gastrobombo", d:"6 unidades: entrecot de ternera, jamón ibérico y gambón.", p:11, t:["casa"]},
+  {s:"seguimos", n:"Ensaladilla a lo Juan Raro", p:9},
+
+  {s:"continuamos", n:"FerranBurger", d:"200 g de carne de ternera, láminas de foie y compota de manzana.", p:13},
+  {s:"continuamos", n:"GerardBurger", d:"200 g de carne de ternera, bacon, queso cheddar, huevo frito y salsa trufada.", p:12},
+  {s:"continuamos", n:"MarcBurger", d:"200 g de carne de ternera, queso de cabra, bacon y mermelada de tomate.", p:12},
+  {s:"continuamos", n:"QuimBurger", d:"200 g de carne de ternera, jamón ibérico, queso curado y salsa Bombonera.", p:12, t:["casa"]},
+  {s:"continuamos", n:"SendaSOLVATGE", d:"Hamburguesa vegana, lechuga y tomate.", p:14, t:["veg"]},
+  {s:"continuamos", n:"Jordiet", d:"Pepito con figatells, queso de cabra y cebolla caramelizada.", p:9},
+  {s:"continuamos", n:"Julieta", d:"Pepito con tomates del terreno, aguacate, salmón y ventresca.", p:8},
+
+  {s:"terminamos", n:"Postres de la Lui", p:6},
+  {s:"terminamos", n:"Coulant de pistacho", d:"Con bola de helado.", p:6.5},
+  {s:"terminamos", n:"Chupito Bombonera", p:3, t:["casa"]},
+  {s:"terminamos", n:"Helado", p:2.5},
+
+  // ---- Barra
+  {s:"cocktails", n:"Mojito Classic", d:"Ron, lima, azúcar, hierbabuena y refresco.", p:8},
+  {s:"cocktails", n:"Mojito Le Fruit", d:"Mojito con fresa, mango, maracuyá o manzana verde.", p:9},
+  {s:"cocktails", n:"Margarita", d:"Tequila, triple sec y lima.", p:8},
+  {s:"cocktails", n:"Margarita Le Fruit", d:"Con fresa, mango, maracuyá o manzana verde.", p:8},
+  {s:"cocktails", n:"Pomada de Menorca", d:"Gin Xoriguer, granizado de limón y hierbabuena.", p:8},
+  {s:"cocktails", n:"Pomada de Fresa", d:"Gin Xoriguer y granizado de fresa.", p:8},
+  {s:"cocktails", n:"Daiquiri Le Fruit", d:"Ron, lima y azúcar con fresa, mango, maracuyá o manzana verde.", p:8},
+  {s:"cocktails", n:"Dark & Stormy", d:"Ron Matusalem 7, lima y ginger beer.", p:9},
+  {s:"cocktails", n:"Mai Tai", d:"Ron, naranja, lima y orgeat.", p:8},
+  {s:"cocktails", n:"Piña Colada", d:"Ron, piña y coco.", p:8},
+  {s:"cocktails", n:"Porn Star Martini", d:"Vodka, vainilla, maracuyá y naranja.", p:8},
+  {s:"cocktails", n:"Menorca Mule", d:"Gin Xoriguer, maracuyá, lima y ginger beer.", p:9},
+  {s:"cocktails", n:"Matu Lemon", d:"Ron Matusalem y granizado de limón.", p:8},
+  {s:"cocktails", n:"Matu Strawberry", d:"Ron Matusalem y granizado de fresa.", p:8},
+
+  {s:"spritz", n:"Spritz Veneciano", d:"Select, soda y cava.", p:7},
+  {s:"spritz", n:"Original Pink", d:"Select, soda de pomelo y twist de naranja.", p:7},
+  {s:"spritz", n:"Hugo Spritz", d:"Licor de flor de saúco, Sprite, hierbabuena y cava.", p:7},
+  {s:"spritz", n:"Aperol Spritz", p:6},
+
+  {s:"vermut", n:"Yzaguirre Blanco", p:3.5},
+  {s:"vermut", n:"Yzaguirre Rojo", p:3.5},
+  {s:"vermut", n:"Petroni Rojo", p:3.5},
+  {s:"vermut", n:"Nordesía Rojo", p:3.5},
+
+  {s:"sin", n:"Virgin Mojito", d:"Sirope de ron, lima, sirope de caña, hierbabuena y soda.", p:7},
+  {s:"sin", n:"Virgin Piña Colada", d:"Sirope de ron, piña y coco.", p:7},
+
+  {s:"tintos", n:"Mucho Más", d:"Red blend: tempranillo de Ribera del Duero y Rioja con syrah de Tierra de Castilla.", copa:3, bot:15},
+  {s:"tintos", n:"Arnegui Crianza", d:"D.O. Rioja · Tempranillo · 12 meses de crianza.", copa:3.5, bot:16},
+  {s:"tintos", n:"Condado de Oriza Roble", d:"D.O. Ribera del Duero · 100 % Tempranillo · 6 meses de crianza.", bot:17},
+  {s:"tintos", n:"Malavida Edición Limitada", d:"D.O. Valencia · Monastrell y Garnacha tintorera · 8 meses de crianza.", bot:18},
+  {s:"tintos", n:"Conde San Cristóbal Crianza", d:"D.O. Ribera del Duero · 100 % Tinta fina · 12–14 meses de crianza.", bot:31},
+
+  {s:"blancos", n:"Analivia", d:"D.O. Rueda · 100 % Verdejo · Crianza sobre lías.", copa:3, bot:15},
+  {s:"blancos", n:"Barón de Ley", d:"D.O. Rioja · 100 % Sauvignon Blanc · Semidulce natural.", copa:3.5, bot:16},
+  {s:"blancos", n:"La Madriguera", d:"D.O. Valencia · 100 % Merseguera.", bot:16},
+  {s:"blancos", n:"Pazo de San Mauro", d:"D.O. Rías Baixas · 100 % Albariño.", bot:26},
+
+  {s:"sangrias", n:"Sangría tinta", copa:3.5},
+  {s:"sangrias", n:"Sangría de cava", copa:4.5},
+
+  {s:"cava", n:"Cava Sutra", bot:18},
+  {s:"cava", n:"Louis Perdrier", bot:20},
+  {s:"cava", n:"Bollinger Special Cuvée", bot:85}
+];
+
+/* [EDITAR] Agenda semanal de ejemplo (dia: 0=domingo … 6=sábado). temporada: "verano" o "invierno" para mostrarlo solo en esa época */
+const AGENDA = [
+  {dia:5, hora:"Desde las 18:00", titulo:"Hora de vermut y tapas caseras", texto:"Empieza el fin de semana con un vermut y nuestras tapas caseras."},
+  {dia:6, hora:"Desde las 18:00", titulo:"Música en directo", texto:"Música en directo en la Bombonera para la tarde-noche del sábado."},
+  {dia:0, hora:"A las 12:00", titulo:"Hora de vermut y tapas Bombonera", texto:"El vermut del domingo, con las tapas de la casa."}
+];
+
+/* EVENTOS — sacados de las publicaciones de Instagram (@bomboneragl) y de la prensa local.
+   Los que tengan fecha futura salen como "Próximo evento"; al pasar la fecha se mueven solos a "Eventos pasados".
+   tipo: "directo" | "dj" | "fiesta" | "acustico" */
+const EVENTOS = [
+  {fecha:"2026-11-28", titulo:"Los Fogonazo", actos:[["18:00","Música en directo"]], tipos:["directo"]},
+  {fecha:"2026-11-21", titulo:"Extremoband", actos:[["18:00","Música en directo"]], tipos:["directo"]},
+  {fecha:"2026-11-15", soloProximo:true, titulo:"Vermut y tapas caseras", texto:"Cerramos el finde como más nos gusta: vermut y tapas caseras.", actos:[["18:00","Hora del vermut"]], tipos:["vermut"]},
+  {fecha:"2026-11-14", titulo:"Nostalgika", texto:"La música toma protagonismo: Nostalgika viene a ponerle ritmo a la tarde.", actos:[["18:00","Música en directo"]], tipos:["directo"]},
+  {fecha:"2026-11-13", soloProximo:true, titulo:"Vermut y tapas caseras", texto:"Arrancamos el fin de semana con vermut y tapas caseras.", actos:[["18:00","Hora del vermut"]], tipos:["vermut"]},
+  {fecha:"2026-11-07", titulo:"The Jadme", texto:"Una tarde para disfrutar de un conciertazo en directo.", actos:[["18:00","Música en directo"]], tipos:["directo"]},
+  {fecha:"2026-10-31", titulo:"Halloween en la Bombonera", texto:"¡La tarde más terrorífica en la Bombonera! Nos acompañan Los Popcorn para ponerle ritmo.", actos:[["18:00","Los Popcorn en directo"]], tipos:["directo","fiesta"]},
+  {fecha:"2026-10-24", titulo:"Jotajaybers", actos:[["18:00","Música en directo"]], tipos:["directo"]},
+  {fecha:"2026-10-17", titulo:"Lollipop", actos:[["18:00","Música en directo"]], tipos:["directo"]},
+  {fecha:"2026-10-11", titulo:"Pont d'octubre: The Vamp", actos:[["18:00","En directe: The Vamp"]], tipos:["directo"], nota:"Junto al Ajuntament de Tavernes"},
+  {fecha:"2026-10-10", titulo:"Pont d'octubre: Sonados", actos:[["18:00","En directe: Sonados"]], tipos:["directo"], nota:"Junto al Ajuntament de Tavernes"},
+  {fecha:"2026-10-09", titulo:"Pont d'octubre: Nostalgika", actos:[["18:00","En directe: Nostalgika"]], tipos:["directo"], nota:"Junto al Ajuntament de Tavernes"},
+  {fecha:"2026-10-03", titulo:"Primer finde de octubre", actos:[["12:00","Pingüin Blinders DJ"],["18:00","En directo: Fogonazo"]], tipos:["dj","directo"]},
+  {fecha:"2026-09-26", titulo:"Septiembre se despide", actos:[["12:00","Vermut y tapas de la casa"],["18:00","En directo: Golfband"]], tipos:["directo"]},
+  {fecha:"2026-09-05", titulo:"La Bombonera sube la temperatura", actos:[["12:00","DJ Pous"],["18:30","En directo: Nostalgika"],["Noche","DJ Culebra en la discopub"]], tipos:["dj","directo"]},
+  {fecha:"2026-09-04", titulo:"Acústico con Josemi Albiñana", actos:[["18:00","Hora del vermut"],["19:30","Acústico en directo"]], tipos:["acustico"]},
+  {fecha:"2026-08-29", titulo:"Último finde del verano", actos:[["12:30","Raquel Cardona"],["18:30","En directo: Star On Years"]], tipos:["dj","directo"]},
+  {fecha:"2026-08-28", titulo:"Resumiendo · Tributo a Sabina", actos:[["19:30","En directo"]], tipos:["directo"]},
+  {fecha:"2026-06-23", titulo:"Nit de Sant Joan", texto:"Cierre musical de la noche más larga del año, dentro de la programación del Ajuntament.", actos:[["00:00","Concierto de 4 Moons"]], tipos:["directo","fiesta"]}
+];
+
+/* Preguntas frecuentes */
+const FAQ = [
+  ["¿Dónde estáis exactamente?","En el Carrer del Vadell, 3, en la playa de Tavernes de la Valldigna, a unos 5 km del centro del pueblo."],
+  ["¿Tenéis opciones veganas o sin carne roja?","Sí. La SendaSOLVATGE es nuestra hamburguesa vegana, y todas las hamburguesas se pueden pedir también con pollo."],
+  ["¿Y si tengo alguna alergia?","Coméntalo a nuestro personal al pedir y te informamos de los alérgenos de cada plato."],
+  ["¿Abrís todo el año?","Sí. En invierno abrimos los viernes desde las 18:00 y los sábados y domingos desde las 12:00. En verano ampliamos días y horario: lo tienes en la tabla de horarios."],
+  ["¿Es necesario reservar?","No es obligatorio, pero los fines de semana y los días de evento te lo recomendamos para asegurar mesa en la terraza."],
+  ["¿Organizáis cumpleaños y celebraciones?","Sí. Escríbenos con la fecha y el número de personas y te preparamos una propuesta para el grupo."],
+  ["¿Hacéis música en directo?","Sí, los sábados a partir de las 18:00 hay música en directo. Publicamos la programación en nuestro Instagram."]
+];
+
+/* =========================================================
+   A partir de aquí no hace falta tocar nada
+   ========================================================= */
+const $ = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+const DIAS = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+const toMin = h => { const [a,b] = h.split(":").map(Number); return a*60+b; };
+const fmt = m => { m = ((m%1440)+1440)%1440; return String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0"); };
+const euro = n => n.toLocaleString("es-ES",{minimumFractionDigits:n%1?2:0, maximumFractionDigits:2})+" €";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const IG_URL = `https://www.instagram.com/${CONFIG.instagramUser}/`;
+const IG_DM = `https://ig.me/m/${CONFIG.instagramUser}`;
+const ICON_WA = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.4z"/></svg>';
+const ICON_IG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>';
+
+/* Hora actual en la zona horaria del local */
+function ahoraLocal(){
+  const p = new Intl.DateTimeFormat("en-US",{timeZone:CONFIG.zonaHoraria, weekday:"short", hour:"2-digit", minute:"2-digit", hourCycle:"h23"}).formatToParts(new Date());
+  const get = t => p.find(x=>x.type===t).value;
+  return {dia:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(get("weekday")), min:Number(get("hour"))*60+Number(get("minute"))};
+}
+/* Temporadas */
+const fechaISOHoy = () => new Intl.DateTimeFormat("en-CA",{timeZone:CONFIG.zonaHoraria}).format(new Date());
+function temporadaDe(iso){
+  const v = CONFIG.horarios.verano, md = iso.slice(5);
+  const enVerano = v.desde <= v.hasta ? (md >= v.desde && md <= v.hasta) : (md >= v.desde || md <= v.hasta);
+  return enVerano ? "verano" : "invierno";
+}
+const temporadaHoy = () => temporadaDe(fechaISOHoy());
+const tramosDia = (temp, d) => (CONFIG.horarios[temp].dias[d] || []);
+const cierreMin = (a, c) => { const s = toMin(a); let e = toMin(c ?? CONFIG.cierreSinHora); if (e <= s) e += 1440; return [s, e]; };
+function tramosSemana(temp){
+  const out = [];
+  for (let d=0; d<7; d++) tramosDia(temp, d).forEach(([a,c])=>{
+    const [s,e] = cierreMin(a,c); out.push([d*1440+s, d*1440+e, d, c != null]);
+  });
+  return out;
+}
+function estado(){
+  const {dia,min} = ahoraLocal(), now = dia*1440 + min, tramos = tramosSemana(temporadaHoy());
+  for (const [s,e,,fijo] of tramos) if ((now>=s && now<e) || (now+10080>=s && now+10080<e)) return {abierto:true, cierra: fijo ? fmt(e) : null};
+  let mejor = null;
+  for (const [s,,d] of tramos){ let diff = s-now; if (diff<=0) diff+=10080; if (!mejor || diff<mejor.diff) mejor={diff,s,d}; }
+  if (!mejor) return {abierto:false, texto:"Consulta nuestro horario"};
+  const hora = fmt(mejor.s);
+  const cuando = (mejor.d===dia && mejor.diff<1440) ? `hoy a las ${hora}` : (mejor.d===(dia+1)%7 && mejor.diff<2880) ? `mañana a las ${hora}` : `el ${DIAS[mejor.d].toLowerCase()} a las ${hora}`;
+  return {abierto:false, texto:`Abrimos ${cuando}`};
+}
+function pintarEstado(){
+  const e = estado(), el = $("#status");
+  el.classList.toggle("abierto", e.abierto); el.classList.toggle("cerrado", !e.abierto);
+  $("#statusText").innerHTML = e.abierto ? `<strong>Abierto ahora</strong>${e.cierra ? ` · hasta las ${e.cierra}` : ""}` : `<strong>Cerrado</strong> · ${e.texto}`;
+  $("#footHoy").textContent = e.abierto ? (e.cierra ? `Abierto hasta las ${e.cierra}` : "Abierto ahora") : e.texto;
+}
+
+/* Contacto */
+const hide = s => { const el=$(s); if (el) (el.closest("li")||el).style.display="none"; };
+function pintarContacto(){
+  const tel = "tel:" + CONFIG.telefono.replace(/[^\d+]/g,"");
+  if (CONFIG.telefono){
+    ["#telLink","#footTel"].forEach(s=>{ const a=$(s); a.href=tel; a.textContent=CONFIG.telefono; });
+    $("#ctaTel").href = tel;
+  } else {
+    hide("#telLink"); hide("#footTel");
+    const c=$("#ctaTel"); c.href=IG_URL; c.target="_blank"; c.rel="noopener"; c.textContent="Síguenos en Instagram";
+  }
+  if (CONFIG.email) ["#mailLink","#footMail"].forEach(s=>{ const a=$(s); a.href="mailto:"+CONFIG.email; a.textContent=CONFIG.email; });
+  else { hide("#mailLink"); hide("#footMail"); }
+  if (CONFIG.facebook) $("#fbLink").href = CONFIG.facebook; else $("#fbLink").style.display="none";
+
+  ["#dirText","#footDir","#dirHorario"].forEach(s=>$(s).textContent = CONFIG.direccion);
+  $("#igLink").href = IG_URL;
+  ["#igText","#footIg"].forEach(s=>{ const a=$(s); a.href=IG_URL; a.textContent="@"+CONFIG.instagramUser; });
+
+  const cf = $("#contactFloat");
+  if (CONFIG.whatsapp){
+    const wa = `https://wa.me/${CONFIG.whatsapp}`;
+    cf.href = wa; cf.innerHTML = ICON_WA; cf.setAttribute("aria-label","Escríbenos por WhatsApp");
+    $("#waLink2").href = wa;
+    $("#btnEnviarTxt").textContent = "Enviar reserva por WhatsApp";
+  } else {
+    $("#waLink2").style.display = "none";
+    cf.href = IG_DM; cf.innerHTML = ICON_IG; cf.classList.add("ig"); cf.setAttribute("aria-label","Escríbenos por Instagram");
+    $("#btnEnviarTxt").textContent = "Enviar reserva por Instagram";
+    $("#legalTxt").textContent = "Copiamos tu mensaje para que solo tengas que pegarlo en el chat de Instagram.";
+  }
+  const q = encodeURIComponent(CONFIG.mapaQuery || CONFIG.direccion);
+  $("#mapa").src = `https://www.google.com/maps?q=${q}&output=embed`;
+  $("#comoLlegar").href = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
+  $("#year").textContent = new Date().getFullYear();
+}
+
+const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const mdTxt = md => { const [m,d] = md.split("-").map(Number); return `${d} de ${MESES[m-1]}`; };
+let tempVista = null;
+function pintarHorario(){
+  const actual = temporadaHoy(); if (!tempVista) tempVista = actual;
+  const hoy = ahoraLocal().dia, v = CONFIG.horarios.verano;
+  $("#tempTabs").innerHTML = ["invierno","verano"].map(t=>`<button type="button" role="tab" aria-selected="${t===tempVista}" data-temp="${t}">${CONFIG.horarios[t].nombre}${t===actual?' <span>ahora</span>':''}</button>`).join("");
+  $$("#tempTabs button").forEach(b=>b.addEventListener("click",()=>{ tempVista=b.dataset.temp; pintarHorario(); }));
+  $("#tablaHorario").innerHTML = [1,2,3,4,5,6,0].map(d=>{
+    const t = tramosDia(tempVista, d);
+    const txt = t.length ? t.map(([a,c]) => c ? `${a} – ${c}` : `Desde las ${a}`).join(" · ") : "Cerrado";
+    return `<tr class="${d===hoy && tempVista===actual ? "hoy" : ""}"><td>${DIAS[d]}</td><td>${txt}</td></tr>`;
+  }).join("");
+  const mover = (md, n) => { const [m,d] = md.split("-").map(Number); const f = new Date(2025, m-1, d+n); return String(f.getMonth()+1).padStart(2,"0")+"-"+String(f.getDate()).padStart(2,"0"); };
+  $("#tempNota").textContent = tempVista==="verano" ? `Del ${mdTxt(v.desde)} al ${mdTxt(v.hasta)}.` : `Del ${mdTxt(mover(v.hasta,1))} al ${mdTxt(mover(v.desde,-1))}.`;
+}
+
+/* Carta: Cocina/Barra + secciones + búsqueda */
+let grupo = "cocina", seccionActiva = "todo";
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+function pintarTabs(){
+  const secs = SECCIONES.filter(s=>s.g===grupo);
+  const tabs = [{id:"todo", n: grupo==="cocina" ? "Toda la cocina" : "Toda la barra"}, ...secs];
+  $("#tabs").innerHTML = tabs.map(s=>`<button class="tab" role="tab" aria-selected="${s.id===seccionActiva}" data-sec="${s.id}">${esc(s.n)}</button>`).join("");
+  $$(".tab").forEach(b=>b.addEventListener("click",()=>{ seccionActiva=b.dataset.sec; pintarTabs(); pintarCarta(); }));
+}
+function precioHTML(i){
+  if (i.p != null) return euro(i.p);
+  const out = [];
+  if (i.copa != null) out.push(`<small>copa</small>${euro(i.copa)}`);
+  if (i.bot != null) out.push(`<small>bot.</small>${euro(i.bot)}`);
+  return out.join(" ");
+}
+function pintarCarta(){
+  const raw = $("#buscar").value.trim(), q = norm(raw);
+  const secs = q ? SECCIONES : SECCIONES.filter(s => s.g===grupo && (seccionActiva==="todo" || s.id===seccionActiva));
+  const nombres = {casa:"De la casa", veg:"Vegana"};
+  const html = secs.map(sec=>{
+    const items = CARTA.filter(i => i.s===sec.id && (!q || norm(i.n+" "+(i.d||"")+" "+sec.n).includes(q)));
+    if (!items.length) return "";
+    return `<div class="seccion">
+      <div class="seccion-head"><h3 class="${sec.rojo?"rojo":""}">${esc(sec.n)}</h3>${sec.nota?`<p>${esc(sec.nota)}</p>`:""}</div>
+      <div class="lista">${items.map(i=>`
+        <div class="item">
+          <div class="item-top"><h4>${esc(i.n)}${(i.t||[]).length?`<span class="badges">${i.t.map(t=>`<span class="badge ${t}">${nombres[t]}</span>`).join("")}</span>`:""}</h4><span class="lead-dots"></span><span class="precio">${precioHTML(i)}</span></div>
+          ${i.d?`<p>${esc(i.d)}</p>`:""}
+        </div>`).join("")}</div>
+    </div>`;
+  }).join("");
+  $("#secciones").innerHTML = html || `<div class="vacio">No encontramos nada con “${esc(raw)}”. Prueba con otra palabra.</div>`;
+}
+function initCarta(){
+  $$(".segment button").forEach(b=>b.addEventListener("click",()=>{
+    grupo = b.dataset.grupo; seccionActiva = "todo";
+    $$(".segment button").forEach(x=>x.setAttribute("aria-pressed", x===b));
+    pintarTabs(); pintarCarta();
+  }));
+  $("#buscar").addEventListener("input", pintarCarta);
+  pintarTabs(); pintarCarta();
+}
+
+function pintarAgenda(){
+  const hoy = ahoraLocal().dia, orden = d => (d+6)%7;
+  const temp = temporadaHoy();
+  $("#eventos").innerHTML = AGENDA.filter(e => !e.temporada || e.temporada===temp).sort((a,b)=>orden(a.dia)-orden(b.dia)).map(e=>`
+    <article class="evento reveal ${e.dia===hoy?"es-hoy":""}">
+      <div class="dia"><small>Cada</small>${DIAS[e.dia]}${e.hora?`<span class="hora">${esc(e.hora)}</span>`:""}</div>
+      <div><h3>${esc(e.titulo)}</h3><p>${esc(e.texto)}</p></div>
+      <span class="hoy">Hoy</span>
+    </article>`).join("");
+}
+
+function pintarEventos(){
+  const hoy = fechaISOHoy();
+  const NOM_TIPO = {directo:"En directo", dj:"DJ", fiesta:"Fiesta", acustico:"Acústico", vermut:"Vermut"};
+  const DIAS_C = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
+  const MES_C = ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+  const d = iso => new Date(iso+"T12:00:00");
+  const proximos = EVENTOS.filter(e => e.fecha >= hoy).sort((a,b)=>a.fecha.localeCompare(b.fecha));
+  const pasados = EVENTOS.filter(e => e.fecha < hoy && !e.soloProximo).sort((a,b)=>b.fecha.localeCompare(a.fecha));
+  const tags = e => (e.tipos||[]).map(t=>`<span class="tag ${t}">${NOM_TIPO[t]}</span>`).join("");
+  const actos = e => (e.actos||[]).map(([h,t])=>`<li><time>${esc(h)}</time>${esc(t)}</li>`).join("");
+
+  const tarjeta = (e, prox) => { const f = d(e.fecha); return `<article class="ev ${prox?"prox":""}">
+      <div class="f"><b>${f.getDate()}</b><span>${DIAS_C[f.getDay()]}${prox?`<br>${MES_C[f.getMonth()]}`:""}</span></div>
+      <div>${prox && e.fecha===hoy ? '<span class="hoy-tag">Hoy</span>' : ""}<h4>${esc(e.titulo)}</h4>${e.texto?`<p class="ev-txt">${esc(e.texto)}</p>`:""}<ul>${actos(e)}</ul>
+      ${e.lugar?`<ul><li>📍 ${esc(e.lugar)}</li></ul>`:""}${e.nota?`<ul><li>${esc(e.nota)}</li></ul>`:""}<div class="tags">${tags(e)}</div></div>
+    </article>`; };
+  const dest = proximos.find(e => e.destacado) || proximos.find(e => !e.soloProximo) || proximos[0];
+  let hp = "";
+  if (dest){
+    const f = d(dest.fecha);
+    hp += `<article class="proximo reveal">
+      <span class="etq">${dest.fecha===hoy ? "Hoy" : "No te lo pierdas"}</span>
+      <div class="fecha-g"><b>${f.getDate()}</b><span>${DIAS_C[f.getDay()]} · ${MES_C[f.getMonth()]}</span></div>
+      <div><h3>${esc(dest.titulo)}</h3>${dest.texto?`<p>${esc(dest.texto)}</p>`:""}<ul class="actos">${(dest.actos||[]).map(([h,t])=>`<li>${esc(h)} · ${esc(t)}</li>`).join("")}</ul></div>
+      <a href="#reservas" class="btn">Reservar mesa</a>
+    </article>`;
+  }
+  const resto = proximos.filter(e => e !== dest);
+  if (resto.length) hp += `<div class="grid-ev prox-grid">${resto.map(e=>tarjeta(e,true)).join("")}</div>`;
+  if (!proximos.length) hp = `<p class="sin-prox">Pronto anunciaremos nuevos planes. Síguenos en Instagram para no perderte nada.</p>`;
+  $("#proximoEv").innerHTML = hp;
+  $("#proximosCount").textContent = proximos.length ? (proximos.length===1 ? "1 evento anunciado" : `${proximos.length} eventos anunciados`) : "";
+
+  const VISIBLES = 6;
+  let html = "", mesActual = "", i = 0;
+  pasados.forEach(e=>{
+    const f = d(e.fecha), extra = i >= VISIBLES;
+    const mes = MESES[f.getMonth()] + " " + f.getFullYear();
+    if (mes !== mesActual){
+      if (mesActual) html += `</div>`;
+      html += `<div class="mes ${extra?"extra":""}">${mes}</div><div class="grid-ev">`;
+      mesActual = mes;
+    }
+    html += `<article class="ev ${extra?"extra":""}">
+      <div class="f"><b>${f.getDate()}</b><span>${DIAS_C[f.getDay()]}</span></div>
+      <div><h4>${esc(e.titulo)}</h4>${e.texto?`<p class="ev-txt">${esc(e.texto)}</p>`:""}<ul>${actos(e)}</ul>
+      ${e.lugar?`<ul><li>📍 ${esc(e.lugar)}</li></ul>`:""}${e.nota?`<ul><li>${esc(e.nota)}</li></ul>`:""}<div class="tags">${tags(e)}</div></div>
+    </article>`;
+    i++;
+  });
+  if (mesActual) html += `</div>`;
+  $("#pasadosEv").innerHTML = html;
+  $("#pasadosCount").textContent = pasados.length ? `${pasados.length} eventos desde ${MESES[d(pasados[pasados.length-1].fecha).getMonth()]}` : "";
+  const btn = $("#verMasEv");
+  btn.parentElement.style.display = pasados.length > VISIBLES ? "" : "none";
+  btn.onclick = () => {
+    const sec = $("#historial"), abierto = sec.classList.toggle("todo");
+    btn.textContent = abierto ? "Ver menos" : "Ver todos los eventos";
+    btn.setAttribute("aria-expanded", abierto);
+    if (!abierto) sec.scrollIntoView({behavior:"smooth"});
+  };
+  const ig = $("#igEventos"); ig.href = IG_URL; ig.textContent = "@" + CONFIG.instagramUser;
+}
+
+function pintarFAQ(){
+  $("#faq-list").innerHTML = FAQ.map(([q,a],i)=>`
+    <div class="faq-item reveal">
+      <button aria-expanded="false" aria-controls="faq${i}">${esc(q)}<i>+</i></button>
+      <div class="faq-panel" id="faq${i}" role="region"><div><p>${esc(a)}</p></div></div>
+    </div>`).join("");
+  $$(".faq-item button").forEach(b=>b.addEventListener("click",()=>{
+    const it = b.parentElement, open = !it.classList.contains("open");
+    $$(".faq-item").forEach(x=>{ x.classList.remove("open"); $("button",x).setAttribute("aria-expanded","false"); });
+    if (open){ it.classList.add("open"); b.setAttribute("aria-expanded","true"); }
+  }));
+}
+
+/* Reservas */
+let personas = 2;
+function horasDisponibles(iso){
+  const d = new Date(iso+"T12:00:00").getDay(), out = [];
+  tramosDia(temporadaDe(iso), d).forEach(([a,c])=>{
+    const [s,e] = cierreMin(a,c);
+    for (let m=s; m<=e-CONFIG.ultimaReservaAntesDeCierre; m+=30) out.push(m);
+  });
+  if (iso === fechaISOHoy()){ const {min} = ahoraLocal(); return out.filter(m => m > min+30); }
+  return out;
+}
+function mostrarAviso(t){ const a=$("#aviso"); a.textContent=t; a.classList.add("show"); }
+function ocultarAviso(){ $("#aviso").classList.remove("show"); }
+function setErr(id, msg){ const c=$("#"+id).closest(".campo"); c.classList.toggle("err",!!msg); $(".msg",c).textContent=msg||""; }
+function rellenarHoras(){
+  const iso = $("#fecha").value, sel = $("#hora");
+  if (!iso){ sel.innerHTML = `<option value="">Elige fecha primero</option>`; return; }
+  const horas = horasDisponibles(iso);
+  if (!horas.length){
+    const d = new Date(iso+"T12:00:00").getDay();
+    sel.innerHTML = `<option value="">Sin horas disponibles</option>`;
+    mostrarAviso(tramosDia(temporadaDe(iso), d).length ? "Ya no quedan horas para reservar hoy. Prueba con otro día." : `Los ${DIAS[d].toLowerCase()} estamos cerrados. Elige otro día.`);
+    return;
+  }
+  ocultarAviso();
+  sel.innerHTML = `<option value="">Elige hora</option>` + horas.map(m=>`<option>${fmt(m)}</option>`).join("");
+}
+function initReservas(){
+  const f = $("#fecha");
+  f.min = fechaISOHoy();
+  const max = new Date(); max.setDate(max.getDate()+60); f.max = max.toISOString().slice(0,10);
+  f.addEventListener("change",()=>{ setErr("fecha"); rellenarHoras(); });
+  $("#hora").addEventListener("change",()=>setErr("hora"));
+  $$(".stepper button").forEach(b=>b.addEventListener("click",()=>{
+    personas = Math.max(1, Math.min(20, personas + Number(b.dataset.step)));
+    $("#personas").textContent = personas;
+    if (personas > 10) mostrarAviso(`Para grupos de más de 10 personas, ${CONFIG.telefono ? "llámanos al "+CONFIG.telefono : "indícalo en el mensaje"} y te preparamos una propuesta.`);
+    else if ($("#aviso").textContent.startsWith("Para grupos")) ocultarAviso();
+  }));
+  ["nombre","tel"].forEach(id=>$("#"+id).addEventListener("input",()=>setErr(id)));
+
+  $("#formReserva").addEventListener("submit", e=>{
+    e.preventDefault();
+    let ok = true;
+    const fecha=$("#fecha").value, hora=$("#hora").value, nombre=$("#nombre").value.trim(), tel=$("#tel").value.trim();
+    if (!fecha){ setErr("fecha","Elige una fecha"); ok=false; }
+    if (!hora){ setErr("hora","Elige una hora"); ok=false; }
+    if (nombre.length<2){ setErr("nombre","Escribe tu nombre"); ok=false; }
+    if (tel.replace(/\D/g,"").length<9){ setErr("tel","Teléfono no válido"); ok=false; }
+    if (!ok){ $(".campo.err input, .campo.err select")?.focus(); return; }
+    const fechaTxt = new Date(fecha+"T12:00:00").toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"});
+    const zona = $("input[name=zona]:checked").value, notas = $("#notas").value.trim();
+    const msg = `¡Hola! Quiero reservar en ${CONFIG.nombre}:\n\n` +
+      `📅 ${fechaTxt}\n🕘 ${hora}\n👥 ${personas} ${personas===1?"persona":"personas"}\n📍 Zona: ${zona}\n` +
+      `🙋 ${nombre} · ${tel}` + (notas ? `\n📝 ${notas}` : "");
+    if (CONFIG.whatsapp){
+      window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+      toast("¡Listo! Envía el mensaje en WhatsApp y te confirmamos.");
+    } else {
+      // Copiamos primero (con el foco aún en la página) y abrimos el chat en el mismo gesto para evitar bloqueos
+      let copiado = null;
+      try { copiado = navigator.clipboard?.writeText(msg); } catch(_) {}
+      window.open(IG_DM, "_blank", "noopener");
+      if (copiado) copiado.then(()=>toast("Mensaje copiado. Pégalo en el chat de Instagram."))
+                          .catch(()=>toast("Escríbenos por Instagram con estos datos."));
+      else toast("Escríbenos por Instagram con estos datos.");
+    }
+  });
+}
+function toast(t){ const el=$("#toast"); el.textContent=t; el.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove("show"),4200); }
+
+/* Navegación y animaciones */
+function initNav(){
+  const nav=$("#nav"), burger=$("#burger"), menu=$("#mobileMenu"), top=$("#toTop");
+  const onScroll=()=>{ nav.classList.toggle("scrolled", scrollY>30); top.classList.toggle("show", scrollY>800); };
+  addEventListener("scroll", onScroll, {passive:true}); onScroll();
+  const toggle = open => { burger.setAttribute("aria-expanded",open); menu.classList.toggle("open",open); document.body.style.overflow = open?"hidden":""; };
+  burger.addEventListener("click",()=>toggle(burger.getAttribute("aria-expanded")!=="true"));
+  $$("a",menu).forEach(a=>a.addEventListener("click",()=>toggle(false)));
+  addEventListener("keydown",e=>{ if(e.key==="Escape") toggle(false); });
+  top.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+  const links = $$(".nav-links a");
+  const spy = new IntersectionObserver(es=>es.forEach(en=>{
+    if (en.isIntersecting) links.forEach(l=>l.classList.toggle("active", l.getAttribute("href")==="#"+en.target.id));
+  }),{rootMargin:"-45% 0px -50% 0px"});
+  ["concepto","carta","ambientes","agenda","historial","visitanos"].forEach(id=>spy.observe($("#"+id)));
+}
+function initReveal(){
+  const io = new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target);} }),{threshold:.12});
+  $$(".reveal").forEach(el=>io.observe(el));
+}
+
+/* Arranque */
+pintarContacto();
+pintarEstado(); setInterval(pintarEstado, 60000);
+pintarHorario();
+initCarta();
+pintarAgenda();
+pintarEventos();
+pintarFAQ();
+initReservas();
+initNav();
+initReveal();
+</script>
+</body>
+</html>
